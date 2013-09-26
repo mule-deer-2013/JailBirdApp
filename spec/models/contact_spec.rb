@@ -32,11 +32,5 @@ describe Contact do
       contact.save
       expect(contact.name).to eq "elaine"
     end
-
-
-
-  end
-
-
-  
+  end 
 end

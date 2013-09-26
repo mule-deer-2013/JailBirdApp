@@ -1,0 +1,16 @@
+
+<div id="name_column">
+  <% @contacts.each do |c| %>
+    <div class="row">
+      <span class="name">
+        <%= c.name %>
+      </span>
+      <span class="phone_number">
+        <%= c.phone_number %>
+      </span>
+    </div>
+  <% end %>
+</div>
+
+
+<%= link_to "create a new contact", new_contact_path %>
