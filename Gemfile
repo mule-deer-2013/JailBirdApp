@@ -45,3 +45,5 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
 end
+
+gem 'google-api-client'
