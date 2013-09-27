@@ -5,5 +5,6 @@ class CreateGroups < ActiveRecord::Migration
       t.references :user
       
       t.timestamps
+    end
   end
 end
