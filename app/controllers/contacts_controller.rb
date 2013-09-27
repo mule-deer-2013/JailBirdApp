@@ -17,6 +17,6 @@ class ContactsController < ApplicationController
 
     redirect_to :root
   end
-
+#change
 
 end
