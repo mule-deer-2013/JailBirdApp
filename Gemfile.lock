@@ -212,11 +212,8 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   factory_girl_rails
-<<<<<<< HEAD
   faker
-=======
   google-api-client
->>>>>>> 0e12a01c2125276aad47b7306ab0c281e51ff45c
   guard-rspec
   jquery-rails
   pg
