@@ -4,6 +4,12 @@ Jailbird::Application.routes.draw do
   resources :contacts, only:[:index, :create, :new]
   root :to => 'contacts#index'
 
+  # resources :api, only:[:index]
+
+
+  match '/api/calls', to: 'api#calls'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
