@@ -2,6 +2,7 @@ class ApiController < ActionController::Base
     
   CLIENT = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
+
   def calls
    
     friends = {}
@@ -21,9 +22,16 @@ class ApiController < ActionController::Base
   end
 
 
+  def group_sms
+    
+  end
+
+
+  def phonebook
+    
+  end
+
+
 
 end
 
-
-# ACCOUNT_SID: AC973790b1e46d4c959e2733a9f646ffc4 
-# AUTH_TOKEN: 6c82ae2c5e0a775237eaed037f6f75d6

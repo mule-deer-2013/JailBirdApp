@@ -8,6 +8,8 @@ Jailbird::Application.routes.draw do
 
 
   match '/api/calls', to: 'api#calls'
+  match '/api/group_sms', to: 'api#group_sms'
+  match '/api/phonebook', to: 'api#phonebook'
 
 
   # The priority is based upon order of creation:
