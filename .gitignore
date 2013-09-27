@@ -18,3 +18,4 @@
 /config/auth
 
 /.rspec
+/config/client_secrets.json
