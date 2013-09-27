@@ -1,3 +1,5 @@
-xml.response do
-  xml.say(hello)
+xml.instruct!
+xml.response
+xml.say(:voice => "alice")
+  "Hello"
 end
