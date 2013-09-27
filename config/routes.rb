@@ -5,4 +5,6 @@ Jailbird::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: "contacts#index"
+
+  match '/sessions/auth', to: 'sessions#auth'
 end
