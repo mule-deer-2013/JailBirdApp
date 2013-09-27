@@ -12,14 +12,12 @@ describe SessionsController do
 	end
 
 	describe "#create" do
-		let!(:user) { User.create(name: "Bob", email: "bob3@bob.com" , password: "bob" ) }
+		let!(:user) { User.create(username: "Bob", email: "bob3@bob.com" , password: "bob" ) }
 
 
 		it "should login a user with valid inputs" do
 			login_params = { sessions: { email: "bob3@bob.com", password: "bob" } }
 			post :create, login_params
-
-
 		end
 
 		it "should not login a user with invalid inputs"
