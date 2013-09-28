@@ -6,7 +6,7 @@
 
   <% @contacts.each do |contact| %>
     <div>
-      <%= check_box_tag "group[contact_ids][]", contact.id, @group.contacts.include?(contact) %>
+      <%= check_box_tag "group[contact_ids][]", contact.id %>
       <%= contact.name %>
     </div>  
   <% end %>

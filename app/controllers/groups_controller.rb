@@ -19,10 +19,30 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    @contacts = Contact.all
+
   end
 
   def show
     @group = Group.find(params[:id])
+  end
+
+  def update
+    params[:group][:contact_ids] ||= []
+    group = Group.find(params[:id])
+
+    if group.update_attributes(params[:group])
+      flash[:notice] = "Successfully Updated"
+      redirect_to root_path
+    else
+      render edit_group_path
+    end
+
+  end
+
+  def destroy
+    Group.find(params[:id]).destroy
+    redirect_to root_path
   end
 
 end
