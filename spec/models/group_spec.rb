@@ -9,7 +9,7 @@ describe Group do
 
   context "association" do
     it { should belong_to :user }
-    it { should have_many :contacts }
+    it { should have_and_belong_to_many :contacts }
   end
 
 end
