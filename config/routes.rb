@@ -1,5 +1,7 @@
 Jailbird::Application.routes.draw do
 
+  devise_for :users
+
   resources :contacts, only:[:index, :create, :new]
   root :to => 'contacts#index'
 
@@ -13,4 +15,6 @@ Jailbird::Application.routes.draw do
 
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+
+  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 end
