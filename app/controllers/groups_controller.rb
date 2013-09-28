@@ -20,7 +20,6 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
     @contacts = Contact.all
-
   end
 
   def show

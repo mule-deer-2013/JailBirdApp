@@ -1,9 +1,8 @@
-
 <div id="name_column">
   <% @contacts.each do |c| %>
     <div class="row">
       <span class="name">
-        <%= c.name %>
+        <%= link_to c.name, contact_path(c) %>
       </span>
       <span class="phone_number">
         <%= c.phone_number %>
