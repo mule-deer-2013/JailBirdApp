@@ -27,7 +27,7 @@ class ApiController < ActionController::Base
     group_sms(params[:TranscriptionText])
   end
 
-  def phonebook
+  def ivr
 
   end
 
