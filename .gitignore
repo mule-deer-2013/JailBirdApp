@@ -19,8 +19,4 @@ Gemfile.lock
 /config/auth
 
 /.rspec
-
-.DS_Store
-/app/.DS_Store
-/config/.DS_Store
-/spec/.DS_Store
+/db/schema.rb
