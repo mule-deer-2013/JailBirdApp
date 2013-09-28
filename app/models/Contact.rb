@@ -5,12 +5,13 @@ class Contact < ActiveRecord::Base
   has_and_belongs_to_many :groups
 
   validates_presence_of :name, :phone_number
+  validates :phone_number, uniqueness: true, phone: true
 
   before_save :sanitize_number
 
   def sanitize_number
-    self.phone_number.gsub!(/^(\+?)1?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})(\s*x[0-9]*)*$/, '+1\1\2\3\4\5')
-    self.phone_number[0] = '' if self.phone_number[0] == '+' && self.phone_number[1] == '+'
+    phone = Phonelib.parse(self.phone_number)
+    self.phone_number = "+" + "#{phone.sanitized}"
   end
 
 end
