@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  
+
   describe '#new' do
 
     let(:user) { User.new }
