@@ -29,12 +29,14 @@ ActiveRecord::Schema.define(:version => 20130927175833) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
+    t.string   "username"
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "oauth_token"
-    t.string   "oauth_secret"
+    t.string   "access_token"
+    t.string   "refresh_token"
+    t.string   "expires_in"
+    t.string   "issued_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

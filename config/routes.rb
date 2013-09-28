@@ -11,4 +11,5 @@ Jailbird::Application.routes.draw do
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   match '/sessions/auth', to: 'sessions#auth'
+  match '/signout', to: 'sessions#destroy', via: :delete
 end
