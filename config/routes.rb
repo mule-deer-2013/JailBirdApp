@@ -7,6 +7,7 @@ Jailbird::Application.routes.draw do
   match '/api/group_sms', to: 'api#group_sms'
   match '/api/phonebook', to: 'api#phonebook'
   match '/api/transcribe_call', to: 'api#transcribe_call'
+  match '/api/ivr', to: 'api#ivr'
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
