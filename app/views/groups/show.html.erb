@@ -1,0 +1,7 @@
+<%= @group.name %><br/>
+
+<% @group.contacts.each do |contact| %>
+  <%= contact.name %> <br/>
+<% end %>
+
+<%= link_to "edit group", edit_group_path %>

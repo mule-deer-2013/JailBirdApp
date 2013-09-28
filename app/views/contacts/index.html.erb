@@ -15,3 +15,9 @@
 
 <%= link_to "create a new contact", new_contact_path %>
 <%= link_to "create a new group", new_group_path %>
+
+<% @groups.each do |g|  %>
+  <li><%= link_to g.name, group_path(g) %></li>
+<% end %>
+
+

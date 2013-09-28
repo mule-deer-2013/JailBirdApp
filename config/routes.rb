@@ -1,6 +1,7 @@
 Jailbird::Application.routes.draw do
 
   resources :contacts, only:[:index, :create, :new]
+  resources :groups, only:[:create, :new, :edit, :show]
   root :to => 'contacts#index'
 
   match '/api/calls', to: 'api#calls'
