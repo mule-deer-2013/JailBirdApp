@@ -14,6 +14,6 @@ client.authorization.scope = 'https://www.google.com/m8/feeds'
 # contacts = client.discovered_api('contacts')
 
 GOOGLE_CLIENT = client
-ENV[GOOGLE_APP_ID] = client_secrets.client_id
-ENV[GOOGLE_APP_SECRET] = client_secrets.client_secret
+ENV['GOOGLE_APP_ID'] = client_secrets.client_id
+ENV['GOOGLE_APP_SECRET'] = client_secrets.client_secret
 # ENV["CONTACTS"] = contacts
