@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-  
+
   describe '#new' do
 
     let(:user) { User.new }
@@ -22,7 +22,7 @@ describe UsersController do
   describe '#create' do
 
     context "with valid inputs" do
-    	let(:user_params) { { user: {name: "Bob", email: "bob3@bob.com" , password: "bob" } } }
+    	let(:user_params) { { user: {username: "Bob", email: "bob3@bob.com" , password: "bob" } } }
     	subject { post :create, user_params }
 
       it "should redirect to root on successful account creation" do
@@ -38,7 +38,7 @@ describe UsersController do
     end
 
     context "with invalid inputs" do
-    	let(:user_params) { { user: {name: "", email: "" , password: "" } } }
+    	let(:user_params) { { user: {username: "", email: "" , password: "" } } }
     	subject { post :create, user_params }
 
     	it "should redirect to signup form" do
