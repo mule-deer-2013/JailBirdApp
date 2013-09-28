@@ -9,10 +9,12 @@ class ContactsController < ApplicationController
   end
 
   def create
+    p params[:contact]
     u = Contact.new(params[:contact])
     
     unless u.save
-      @errors = u.errors.full_message
+      @errors = u.errors.full_messages
+      render new_user_path
     end
 
     redirect_to :root

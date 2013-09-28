@@ -1,4 +1,5 @@
 xml.instruct!
+
 xml.Response do
   xml.Say(:voice => "alice") do
     xml.text! "Hey alex, please leave a message to text your friends."
