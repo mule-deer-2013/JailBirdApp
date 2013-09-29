@@ -6,15 +6,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    p params
     g = Group.new(params[:group])
-
     unless g.save
-      @errors = g.errors.full_messages
-      render new_group_path
+      flash[:errors] = g.errors.full_messages
+      redirect_to new_group_path
+    else
+      redirect_to :root
     end
-
-    redirect_to :root
   end
 
   def edit
