@@ -2,6 +2,9 @@ Jailbird::Application.routes.draw do
 
   devise_for :users
 
+  match '/google/import', to: 'google_api#new'
+  match '/contacts/import', to: 'contacts#import'
+
   resources :contacts
   resources :groups, except:[:index]
   root :to => 'contacts#index'
@@ -15,8 +18,5 @@ Jailbird::Application.routes.draw do
   match '/api/sms_blast', to: 'api#sms_blast'
   match '/api/voice_broadcasting', to: 'api#voice_broadcasting', :via => :post
   match '/api/sending_voice_message', to: 'api#sending_voice_message'
-
-  match '/contacts/google', to: 'google_api#new'
-  match '/contacts/import', to: 'contacts#import'
 
 end

@@ -1,6 +1,6 @@
 <div>
 <% if user_signed_in? %>
-  <%= link_to 'Add your contacts from Google', '/contacts/google' %>
+  <%= link_to 'Add your contacts from Google', '/google/import' %>
     <div id="name_column">
       <% @contacts.each do |c| %>
         <div class="row">
