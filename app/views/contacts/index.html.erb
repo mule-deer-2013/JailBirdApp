@@ -1,6 +1,6 @@
 <div>
 <% if user_signed_in? %>
-  <%= link_to 'Add your contacts from Google', user_omniauth_authorize_path(:google_oauth2) %>
+  <%= link_to 'Add your contacts from Google', '/contacts/google' %>
   <div id="name_column">
     <% @contacts.each do |c| %>
       <div class="row">
