@@ -18,4 +18,5 @@ Jailbird::Application.routes.draw do
 
   match '/contacts/google', to: 'google_api#new'
   match '/contacts/import', to: 'contacts#import'
+
 end
