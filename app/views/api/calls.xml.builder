@@ -1,10 +1,22 @@
 xml.instruct!
-
 xml.Response do
-  xml.Gather(:action => "/api/ivr", :numDigits => "1") do
-    xml.Say(:voice => "alice") do
-      xml.text! "Hey alex, please press 1 to tell your family your locked up.
-                Press 2 to ask your friends to bail you out."
+
+  xml.Say(:voice => "alice", :language => "en-AU") do
+    xml.text! "Thanks for calling jailbird"
+  end
+
+  xml.Gather(:numDigits => "1", :action => "/api/ivr", :method => "get") do 
+    xml.Say(:voice => "alice", :language => "en-AU") do
+      xml.text! "To navigate your address book, press 1."
+    end
+    xml.Say(:voice => "alice", :language => "en-AU") do
+      xml.text! "To text your groups, press 2."
+    end
+    xml.Say(:voice => "alice", :language => "en-AU") do
+      xml.text! "Press any other key to start over."
+    end
+    xml.Say(:voice => "alice", :language => "en-AU") do
+      xml.text! "Press 8 to wolf everyone."
     end
   end
 end

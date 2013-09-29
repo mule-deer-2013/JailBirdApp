@@ -3,45 +3,47 @@ class ApiController < ActionController::Base
   CLIENT = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   def calls
-
-    contacts = Contact.all
-    friends = {}
-
-    contacts.each do |contact|
-      friends[contact.phone_number] = contact.name
-    end
-
-    name = friends[params['From']] || 'Monkey'
-    r = Twilio::TwiML::Response.new do |r|
-      r.Say "What did you do this time?", voice: 'Alice'
-      r.Gather :numDigits => '1', :action => '/api/ivr', :method => 'get' do |g|
-        g.Say 'To navigate your address book, press 1.', voice: 'Alice'
-        g.Say 'Press 2 to message your groups.', voice: 'Alice'
-        g.Say 'Press any other key to start over.', voice: 'Alice'
-      end
-    end
-    render :xml => r.text
+    render 'calls.xml.builder'
   end
 
 
   def ivr
 
-    friends = contact_list
+      contacts = Contact.all
+      # groups = Group.all
+      
+      friends = {}
+      contacts.each {|cont| friends[cont.phone_number] = cont.name}
 
-    r = Twilio::TwiML::Response.new do |r|
-      redirect_to '/api/calls' unless params['Digits'] == "1" || params['Digits'] == "2"
-      if params['Digits'] == "1"
+    # r = Twilio::TwiML::Response.new do |r|
 
-        r.Gather :numDigits => '1', :action => '/api/ivr', :method => 'get' do |g|
-          g.Say 'To navigate your address book, press 1.', voice: 'Alice'
+    #   if params['Digits'] == "1"
+    #     r.Gather :numDigits => '1', :action => '/api/dial_contact', :method => 'get' do |g|
 
-          friends.each_pair do |num, person|
-            r.Say "To call #{person}, press "
-          end
-        end
-      end
-    end
+    #       friends.each_pair do |num, person|
+    #         g.Say "To call #{person}, press 1"
+    #       end
+
+    #     end
+
+    #   elsif params['Digits'] == "2"
+    #     r.Gather :numDigits => '1', :action => '/api/group_sms', :method => 'get' do |g|
+    #     end
+
+    #   # else
+    #   #   redirect_to '/api/calls' unless params['Digits'] == "1" || params['Digits'] == "2"
+    #   end
+    # end
     # render :xml => r.text
+  r = Twilio::TwiML::Response.new do |r|
+    r.Dial '+13105551212' ### Connect the caller to Koko, or your cell
+    r.Say 'The call failed or the remote party hung up. Goodbye.'
+  end
+
+  render xml: r.text
+
+
+
   end
 
   def dial_contact

@@ -30,7 +30,7 @@ class ContactsController < ApplicationController
       flash[:notice] = "Successfully Updated"
       redirect_to root_path
     else
-      render edit_group_path
+      render edit_contact_path
     end
 
   end

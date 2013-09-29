@@ -30,20 +30,17 @@ ActiveRecord::Schema.define(:version => 20130928064053) do
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "contact_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "access_token"
-    t.string   "refresh_token"
-    t.string   "expires_in"
-    t.string   "issued_at"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
