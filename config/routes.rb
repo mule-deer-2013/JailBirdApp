@@ -11,10 +11,10 @@ Jailbird::Application.routes.draw do
   match '/api/transcribe_call', to: 'api#transcribe_call'
 
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  # match '/signin', to: 'sessions#new'
+  # match '/signout', to: 'sessions#destroy', via: :delete
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 end

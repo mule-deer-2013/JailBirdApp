@@ -2,16 +2,16 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:google_oauth2]
+         :recoverable, :rememberable, :validatable, omniauth_providers: [:google_oauth2]
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me, :uid, :provider, :avatar
+  attr_accessible :email, :password_confirmation, :password, :uid, :provider
 
-	has_secure_password
+	# has_secure_password
 
-	validates :email, :username, :password, presence: true
-	validates :email, uniqueness: true
+	# validates :email, :username, :password, presence: true
+	# validates :email, uniqueness: true
 
-  before_save :create_remember_token
+  # before_save :create_remember_token
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -29,10 +29,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  private
+  # private
 
-  def create_remember_token
-    self.remember_token = SecureRandom.urlsafe_base64
-  end
+  # def create_remember_token
+  #   self.remember_token = SecureRandom.urlsafe_base64
+  # end
 
 end

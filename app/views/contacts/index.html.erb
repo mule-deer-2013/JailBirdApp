@@ -1,24 +1,17 @@
-
-<div id="name_column">
-  <% @contacts.each do |c| %>
-    <div class="row">
-      <span class="name">
-        <%= c.name %>
-      </span>
-      <span class="phone_number">
-        <%= c.phone_number %>
-      </span>
+<div>
+  <% if user_signed_in? %>
+    <%= link_to 'Sign in with Google', user_omniauth_authorize_path(:google_oauth2) %>
+    <div id="name_column">
+      <% @contacts.each do |c| %>
+        <div class="row">
+          <span class="name">
+            <%= c.name %>
+          </span>
+          <span class="phone_number">
+            <%= c.phone_number %>
+          </span>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </div>
-
-
-<%= link_to "create a new contact", new_contact_path %>
-<br>
-<%= link_to "sign in!", signin_path %>
-<br>
-<%= link_to "signup!", new_user_path %>
-<br>
-<% if signed_in? %>
-  <%= link_to "sign-out!", signout_path, method: "delete" %>
-<% end %>
