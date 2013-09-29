@@ -20,3 +20,11 @@
 <% end %>
 
 
+<br>
+<%= link_to "sign in!", signin_path %>
+<br>
+<%= link_to "signup!", new_user_path %>
+<br>
+<% if signed_in? %>
+  <%= link_to "sign-out!", signout_path, method: "delete" %>
+<% end %>

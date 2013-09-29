@@ -23,6 +23,7 @@ describe UsersController do
 
     context "with valid inputs" do
       let(:user_params) { { user: FactoryGirl.attributes_for(:user) } }
+
     	subject { post :create, user_params }
 
       it "should redirect to root on successful account creation" do
@@ -32,9 +33,10 @@ describe UsersController do
       it "should create a new user" do
       	expect{
       		post :create, user_params
-         }.to change(User, :count).by(1)
-       end
-     end
+        }.to change(User, :count).by(1)
+      end
+
+    end
 
      context "with invalid inputs" do
        let(:user_params) { { user: {name: "", email: "" , password: "" } } }
