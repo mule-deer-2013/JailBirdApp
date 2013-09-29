@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe UsersController do
 
-  describe '#new' do
+  context '#new' do
 
     let(:user) { User.new }
 
@@ -19,10 +19,11 @@ describe UsersController do
 
   end
 
-  describe '#create' do
+  context '#create' do
 
     context "with valid inputs" do
-    	let(:user_params) { { user: {username: "Bob", email: "bob3@bob.com" , password: "bob" } } }
+      let(:user_params) { { user: FactoryGirl.attributes_for(:user) } }
+
     	subject { post :create, user_params }
 
       it "should redirect to root on successful account creation" do
@@ -32,27 +33,24 @@ describe UsersController do
       it "should create a new user" do
       	expect{
       		post :create, user_params
-      	}.to change(User, :count).by(1)
+        }.to change(User, :count).by(1)
       end
 
     end
 
-    context "with invalid inputs" do
-    	let(:user_params) { { user: {username: "", email: "" , password: "" } } }
-    	subject { post :create, user_params }
+     context "with invalid inputs" do
+       let(:user_params) { { user: {name: "", email: "" , password: "" } } }
+       subject { post :create, user_params }
 
-    	it "should redirect to signup form" do
-    		subject.should redirect_to(new_user_path)
-    	end
+       it "should redirect to signup form" do
+        subject.should redirect_to(new_user_path)
+      end
 
-    	it "should not create a new user" do
-    		expect{
-      		post :create, user_params
-      	}.to_not change(User, :count)
-    	end
-
+      it "should not create a new user" do
+        expect{
+          post :create, user_params
+          }.to_not change(User, :count)
+        end
+      end
     end
-
   end
-
-end

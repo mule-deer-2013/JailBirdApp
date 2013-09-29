@@ -22,6 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'twilio-ruby'
+gem 'phonelib'
 
 gem 'devise'
 
