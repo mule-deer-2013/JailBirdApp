@@ -24,8 +24,10 @@ gem 'jquery-rails'
 gem 'twilio-ruby'
 gem 'phonelib'
 
+gem 'devise'
+
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
@@ -48,3 +50,4 @@ group :test do
 end
 
 gem 'google-api-client'
+gem 'rest-client'

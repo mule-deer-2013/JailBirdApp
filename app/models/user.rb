@@ -1,20 +1,9 @@
 class User < ActiveRecord::Base
-
-	attr_accessible :email, :username, :password
-
-	has_secure_password
-
-	validates :email, :username, :password, presence: true
-	validates :email, uniqueness: true
-
-  has_many :contacts
-  has_many :groups
-  before_save :create_remember_token
-
-  private
-
-  def create_remember_token
-    self.remember_token = SecureRandom.urlsafe_base64
-  end
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password_confirmation, :password, :uid, :provider
 
 end
