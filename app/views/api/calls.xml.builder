@@ -1,7 +1,10 @@
 xml.instruct!
+
 xml.Response do
-  xml.Say(:voice => "alice") do
-    xml.text! "Hey alex, please leave a message to text your friends."
+  xml.Gather(:action => "/api/ivr", :numDigits => "1") do
+    xml.Say(:voice => "alice") do
+      xml.text! "Hey alex, please press 1 to tell your family your locked up.
+                Press 2 to ask your friends to bail you out."
+    end
   end
-  xml.Record(:transcribe => true, :transcribeCallback => "/api/transcribe_call")
 end

@@ -1,0 +1,12 @@
+<h3>edit your contact's info</h3>
+<%= form_for(@contact) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+    <%= f.submit %>
+<% end %>
+<h3><%= @errors %></h3>
+
+<%= button_to "Delete this contact", @contact, method: :delete, confirm: "Are you sure?" %>
+
