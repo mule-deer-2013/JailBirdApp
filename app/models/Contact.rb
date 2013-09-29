@@ -13,5 +13,4 @@ class Contact < ActiveRecord::Base
     phone = Phonelib.parse(self.phone_number)
     self.phone_number = "+" + "#{phone.sanitized}"
   end
-
 end
