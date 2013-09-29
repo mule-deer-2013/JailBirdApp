@@ -1,7 +1,7 @@
 xml.instruct!
 xml.Response do
   xml.Say(:voice => "alice") do
-    xml.text! "Hey alex, please leave a message to text your friends."
+    xml.text! "Leave a message to text to your group"
   end
-  xml.Record(:transcribe => true, :transcribeCallback => "/api/transcribe_call")
+  xml.Record(:transcribe => true, :transcribeCallback => "/api/transcribe_call/?group=#{@group_id}")
 end

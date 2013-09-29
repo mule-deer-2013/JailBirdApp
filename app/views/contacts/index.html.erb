@@ -1,3 +1,8 @@
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <div id="name_column">
   <% @contacts.each do |c| %>
     <div class="row">
@@ -18,7 +23,6 @@
 <% @groups.each do |g|  %>
   <li><%= link_to g.name, group_path(g) %></li>
 <% end %>
-
 
 <br>
 <%= link_to "sign in!", signin_path %>

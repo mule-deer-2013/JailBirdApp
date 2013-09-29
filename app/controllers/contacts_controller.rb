@@ -5,14 +5,13 @@ class ContactsController < ApplicationController
   end
 
   def create
-    p params[:contact]
     u = Contact.new(params[:contact])
-
     unless u.save
-      @errors = u.errors.full_messages
-      render new_user_path
+      flash[:errors] = u.errors.full_messages
+      redirect_to new_contact_path
+    else
+      redirect_to root_path
     end
-    redirect_to :root
   end
 
   def edit
@@ -25,14 +24,14 @@ class ContactsController < ApplicationController
 
   def update
     contact = Contact.find(params[:id])
-
     if contact.update_attributes(params[:contact])
-      flash[:notice] = "Successfully Updated"
+      flash[:notice] = "Successfully Updated!"
       redirect_to root_path
     else
-      render edit_group_path
-    end
 
+      flash[:errors] = contact.errors.full_messages
+      redirect_to edit_contact_path
+    end
   end
 
   def destroy
