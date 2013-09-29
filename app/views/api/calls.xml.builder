@@ -12,6 +12,8 @@ xml.Response do
     xml.Say(:voice => "alice", :language => "en-AU") do
       xml.text! "To text your groups, press 2."
     end
-
+    xml.Say(:voice => "alice", :language => "en-AU") do
+      xml.text! "To voice blast your groups, press 3."
+    end
   end
 end
