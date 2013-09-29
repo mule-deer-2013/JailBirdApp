@@ -6,7 +6,7 @@
     <%= f.text_field :phone_number %>
     <%= f.submit %>
 <% end %>
-<h3><%= @errors %></h3>
+<%= render 'layouts/errors' %>
 
 <%= button_to "Delete this contact", @contact, method: :delete, confirm: "Are you sure?" %>
 

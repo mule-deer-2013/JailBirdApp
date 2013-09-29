@@ -1,17 +1,14 @@
 <h2>create your group</h2>
 
+<%= render 'layouts/errors' %>
 <%= form_for(@group) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
-
   <% @contacts.each do |contact| %>
     <div>
       <%= check_box_tag "group[contact_ids][]", contact.id %>
       <%= contact.name %>
-    </div>  
+    </div>
   <% end %>
-
-
-  <%= f.submit %>
-
+<%= f.submit %>
 <% end %>

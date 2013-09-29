@@ -1,23 +1,28 @@
-  <div id="name_column">
-    <% @contacts.each do |c| %>
-      <div class="row">
-        <span class="name">
-          <%= link_to c.name, contact_path(c) %>
-        </span>
-        <span class="phone_number">
-          <%= c.phone_number %>
-        </span>
-      </div>
-    <% end %>
-  </div>
 
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
 
-  <%= link_to "create a new contact", new_contact_path %>
-  <%= link_to "create a new group", new_group_path %>
-
-  <% @groups.each do |g|  %>
-    <li><%= link_to g.name, group_path(g) %></li>
+<div id="name_column">
+  <% @contacts.each do |c| %>
+    <div class="row">
+      <span class="name">
+        <%= link_to c.name, contact_path(c) %>
+      </span>
+      <span class="phone_number">
+        <%= c.phone_number %>
+      </span>
+    </div>
   <% end %>
+</div>
+
+
+<%= link_to "create a new contact", new_contact_path %>
+<%= link_to "create a new group", new_group_path %>
+
+<% @groups.each do |g|  %>
+  <li><%= link_to g.name, group_path(g) %></li>
+<% end %>
 
 <br>
 <%= link_to "sign in!", signin_path %>
