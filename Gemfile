@@ -31,3 +31,24 @@ end
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+gem 'debugger'
+
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "shoulda-matchers"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+end
+
+gem 'google-api-client'
+gem 'rest-client'
+gem 'nokogiri'
