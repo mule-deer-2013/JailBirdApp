@@ -8,12 +8,5 @@ module ApplicationHelper
 			auth
 		)
 	end
-
-	def set_session
-		session[:access_token] = user_auth.access_token
-		session[:refresh_token] = user_auth.refresh_token
-		session[:expires_at] = user_auth.expires_at
-		session[:issued_at] = user_auth.issued_at
-	end
 	
 end

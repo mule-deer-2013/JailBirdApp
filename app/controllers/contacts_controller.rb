@@ -45,21 +45,29 @@ class ContactsController < ApplicationController
   end
 
   def import
-    user_info = JSON.parse(RestClient.get "https://www.googleapis.com/oauth2/v2/userinfo?access_token=#{user_auth.access_token}")
-    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{user_info['email']}/full?access_token=#{user_auth.access_token}&max-results=1000"
-    @imported_contacts = []
+    user_info = JSON.parse(RestClient.get "https://www.googleapis.com/oauth2/v2/userinfo?access_token=#{session[:access_token]}")
+    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{user_info['email']}/full?access_token=#{session[:access_token]}&max-results=1000"
+    @imported_contacts = parse_xml_contacts(contacts_response)
+    session[:access_token] = nil
+    render :import
+  end
+
+  private
+
+  def parse_xml_contacts(contacts_response)
+    parsed_contacts = []
     xml_contacts = Nokogiri::XML(contacts_response)
     xml_contacts.css('entry').each do |node|
       phone_number_tags = node.xpath('gd:phoneNumber')
-      phone_number_types = phone_number_tags.map { |phone_tag| phone_tag.attr('rel').match(/[^#]\w+$/).to_s.to_sym }
+      phone_number_types = phone_number_tags.map { |phone_tag| phone_tag.attr('rel').match(/[^#]\w+$/).to_s.to_sym unless phone_tag.attr('rel').nil? }
       if phone_number_tags[0] != nil && phone_number_types.include?(:mobile)
         contact = { name: node.at_css('title').text }
         phone_numbers = phone_number_tags.map { |phone_tag| phone_tag.inner_text }
         contact.merge!(Hash[phone_number_types.zip(phone_numbers)].delete_if {|k, v| k != :mobile })
-        @imported_contacts << contact
+        parsed_contacts << contact
       end
     end
-    render :import
+    parsed_contacts
   end
 
 end
