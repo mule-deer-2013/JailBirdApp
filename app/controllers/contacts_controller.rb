@@ -45,8 +45,9 @@ class ContactsController < ApplicationController
   end
 
   def import
+    user_info = JSON.parse(RestClient.get "https://www.googleapis.com/oauth2/v2/userinfo?access_token=#{user_auth.access_token}")
+    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{user_info['email']}/full?access_token=#{user_auth.access_token}&max-results=1000"
     @imported_contacts = []
-    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{current_user.email}/full?access_token=#{user_auth.access_token}&max-results=1000"
     xml_contacts = Nokogiri::XML(contacts_response)
     xml_contacts.css('entry').each do |node|
       phone_number_tags = node.xpath('gd:phoneNumber')
