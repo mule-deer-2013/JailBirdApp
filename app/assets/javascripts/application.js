@@ -23,7 +23,6 @@ function setListeners(){
   $('#egg').on('click', showLogin)
 }
 
-
 $(document).ready(function(){
   $('.login').easyModal();
   setListeners()
