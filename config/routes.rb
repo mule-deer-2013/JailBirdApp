@@ -7,7 +7,10 @@ Jailbird::Application.routes.draw do
 
   resources :contacts
   resources :groups, except:[:index]
-  root :to => 'contacts#index'
+
+  devise_scope :user do
+    root to: "devise/registrations#new"
+  end
 
   match '/api/calls', to: 'api#calls'
   match '/api/group_sms', to: 'api#group_sms'
