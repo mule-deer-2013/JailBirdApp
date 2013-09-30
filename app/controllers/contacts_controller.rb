@@ -1,5 +1,10 @@
 class ContactsController < ApplicationController
 
+  def index
+    @contacts = Contact.all
+    @groups = Group.all
+  end
+
   def new
     @contact = Contact.new
   end
@@ -37,11 +42,6 @@ class ContactsController < ApplicationController
   def destroy
     Contact.find(params[:id]).destroy
     redirect_to root_path
-  end
-
-  def index
-    @contacts = Contact.all
-    @groups = Group.all
   end
 
   def import

@@ -9,14 +9,14 @@ class ApiController < ActionController::Base
   def ivr
       contacts = Contact.all
       groups = Group.all
-      
+
     r = Twilio::TwiML::Response.new do |r|
 
       if params['Digits'] == "1"
-        r.Gather :numDigits => '2', :action => '/api/dial', :method => 'get' do |g|
+        r.Gather :numDigits => '2', :action => '/api/dial/', :method => 'get' do |g|
+
           contacts.each do |contact|
             g.Say "To call #{contact.name}, press #{contact.id}"
-            # $fuck_ruby = contact
           end
         end
 
@@ -35,9 +35,8 @@ class ApiController < ActionController::Base
         end
       end
     end
-    
-    render :xml => r.text
 
+    render :xml => r.text
   end
 
   def dial_contact

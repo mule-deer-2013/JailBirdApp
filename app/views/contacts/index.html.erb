@@ -1,5 +1,4 @@
 <div>
-<% if user_signed_in? %>
   <%= link_to 'Add your contacts from Google', '/google/import' %>
     <div id="name_column">
       <% @contacts.each do |c| %>
@@ -13,7 +12,7 @@
         </div>
       <% end %>
     </div>
-  <% end %>
+
   <%= link_to "create a new contact", new_contact_path %>
   <%= link_to "create a new group", new_group_path %>
 
@@ -21,7 +20,3 @@
     <li><%= link_to g.name, group_path(g) %></li>
   <% end %>
 </div>
-
-<% if flash[:notice] %>
-  <%= flash[:notice] %>
-<% end %>
