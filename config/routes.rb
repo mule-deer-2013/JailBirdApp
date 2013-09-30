@@ -2,7 +2,8 @@ Jailbird::Application.routes.draw do
 
   devise_for :users
 
-  match '/google/import', to: 'google_api#new'
+  match '/google/new', to: 'google_api#new'
+  match '/google/create', to: 'google_api#create'
   match '/contacts/import', to: 'contacts#import'
 
   resources :contacts
