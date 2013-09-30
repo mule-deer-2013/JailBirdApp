@@ -1,0 +1,8 @@
+<h1>Here are your Google contacts with mobile numbers:</h1>
+
+<% @imported_contacts.each do |contact| %>
+	<div>
+		<h3><%= contact[:name] %></h3>
+		<p><%= contact[:mobile] %></p>
+	</div>
+<% end %>
