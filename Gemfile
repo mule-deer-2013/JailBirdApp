@@ -51,3 +51,4 @@ end
 
 gem 'google-api-client'
 gem 'rest-client'
+gem 'nokogiri'

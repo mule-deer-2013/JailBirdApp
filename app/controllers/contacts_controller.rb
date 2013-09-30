@@ -45,13 +45,25 @@ class ContactsController < ApplicationController
   end
 
   def import
+    @imported_contacts = []
     auth = GOOGLE_CLIENT.authorization.dup
     auth.redirect_uri = 'http://localhost:3000/contacts/import'
     auth.update_token!(session)
     auth.code = params[:code] if params[:code]
     auth.fetch_access_token!
-    google_contacts = RestClient.get "https://www.google.com/m8/feeds/contacts/#{current_user.email}/full?access_token=#{auth.access_token}"
-    render :xml => google_contacts
+    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{current_user.email}/full?access_token=#{auth.access_token}&max-results=1000"
+    xml_contacts = Nokogiri::XML(contacts_response)
+    xml_contacts.css('entry').each do |node|
+      phone_number_tags = node.xpath('gd:phoneNumber')
+      phone_number_types = phone_number_tags.map { |phone_tag| phone_tag.attr('rel').match(/[^#]\w+$/).to_s.to_sym }
+      if phone_number_tags[0] != nil && phone_number_types.include?(:mobile)
+        contact = { name: node.at_css('title').text }
+        phone_numbers = phone_number_tags.map { |phone_tag| phone_tag.inner_text }
+        contact.merge!(Hash[phone_number_types.zip(phone_numbers)].delete_if {|k, v| k != :mobile })
+        @imported_contacts << contact
+      end
+    end
+    render :import
   end
 
 end
