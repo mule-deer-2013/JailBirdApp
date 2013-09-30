@@ -1,3 +1,55 @@
+.panel .signup {
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.panel .signin {
+    position: absolute;
+    top: 0;
+    z-index: 800;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    -webkit-transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-transform: rotateY(-180deg);
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.panel.flip .signup {
+    z-index: 900;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
+.panel.flip .signin {
+    z-index: 800;
+    -webkit-transform: rotateX(0deg) rotateY(0deg);
+    -moz-transform: rotateX(0deg) rotateY(0deg);
+}
+
 .panel {
     color: white;
     margin-top: 20%;
@@ -52,60 +104,10 @@
    font-size: 20px;
 }
 
-.panel .signup {
-    position: absolute;
-    top: 0;
-    z-index: 900;
-    width: inherit;
-    height: inherit;
-    text-align: center;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-.panel.flip .signup {
-    z-index: 900;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-}
-.panel .signin {
-    position: absolute;
-    top: 0;
-    z-index: 800;
-    width: inherit;
-    height: inherit;
-    text-align: center;
-    -webkit-transform: rotateY(-180deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-transform: rotateY(-180deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-.panel.flip .signin {
-    z-index: 1000;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-}
-
 .form_title {
     font-family: 'Roboto';
     font-weight:bolder;
     font-size: 30px;
     text-shadow: 2px 2px 3px black;
     margin-bottom: 5px
-
 }
