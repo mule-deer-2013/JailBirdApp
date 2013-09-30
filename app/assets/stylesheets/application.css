@@ -11,3 +11,18 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  background-image: url('home_bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#egg {
+  position: relative;
+  width: 50px;
+  height: 100px;
+  background-color: white;
+  top: 300px;
+  left: 300px;
+}

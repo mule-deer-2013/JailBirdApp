@@ -5,10 +5,11 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700|Roboto:400,500,900,100' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<div class="login">
-	  <% if !user_signed_in? %>
+	  <% unless user_signed_in? %>
 			<%= link_to 'Sign_in', new_user_session_path %>
 			<%= link_to 'Register', new_user_registration_path %>
 		<% else %>
