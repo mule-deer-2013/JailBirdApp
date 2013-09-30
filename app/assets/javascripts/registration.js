@@ -1,6 +1,6 @@
 var Panel = {
   init: function() {
-    $('.panel').on('click', 'a', this.togglePanelForm);
+    $('.panel').on('click', '.flipper', this.togglePanelForm);
   },
 
   togglePanelForm: function(e) {
