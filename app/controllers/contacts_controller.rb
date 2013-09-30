@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
 
   def index
-    @contacts = Contact.all
-    @groups = Group.all
+    @contacts = current_user.contacts
+    @groups = current_user.groups
   end
 
   def new
@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    u = Contact.new(params[:contact])
+    u = current_user.contacts.build(params[:contact])
     unless u.save
       flash[:errors] = u.errors.full_messages
       redirect_to new_contact_path
