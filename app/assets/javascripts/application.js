@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+function showLogin(){
+  $('.login').trigger('openModal')
+}
+
+function setListeners(){
+  $('#egg').on('click', showLogin)
+}
+
+$(document).ready(function(){
+  $('.login').easyModal();
+  setListeners()
+})

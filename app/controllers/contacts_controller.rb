@@ -1,11 +1,16 @@
 class ContactsController < ApplicationController
 
+  def index
+    @contacts = current_user.contacts
+    @groups = current_user.groups
+  end
+
   def new
     @contact = Contact.new
   end
 
   def create
-    u = Contact.new(params[:contact])
+    u = current_user.contacts.build(params[:contact])
     unless u.save
       flash[:errors] = u.errors.full_messages
       redirect_to new_contact_path
@@ -37,11 +42,6 @@ class ContactsController < ApplicationController
   def destroy
     Contact.find(params[:id]).destroy
     redirect_to root_path
-  end
-
-  def index
-    @contacts = Contact.all
-    @groups = Group.all
   end
 
   def import
