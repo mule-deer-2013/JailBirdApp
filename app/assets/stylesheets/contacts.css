@@ -41,7 +41,6 @@
   padding-left: 30px;
   text-decoration: none;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
-  border-radius: 10px;
   box-shadow: 0 3px 6px #333;
   border: solid 1px #0099CC;
   background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
@@ -54,4 +53,30 @@
 
 h3 {
   text-align: center
+}
+
+.contact {
+  height: 70px;
+  width: 250px;
+  background-color: white;
+  margin: 10px;
+  display: inline-block;
+  box-shadow: 0 0 10px #666;
+}
+
+.contact .pic {
+  width: 70px;
+  height: 70px;
+  float: left
+}
+
+.contact .pic img {
+  height: 70px;
+  width: 70px;
+
+}
+
+.contact .name {
+  font-size: 20px;
+  line-height: 70px
 }
