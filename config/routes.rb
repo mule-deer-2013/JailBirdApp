@@ -21,5 +21,6 @@ Jailbird::Application.routes.draw do
   match '/api/sms_blast', to: 'api#sms_blast'
   match '/api/voice_broadcasting', to: 'api#voice_broadcasting', :via => :post
   match '/api/sending_voice_message', to: 'api#sending_voice_message'
-
+  match '/api/phone_validation', to: 'api#phone_validation'
+  match '/api/jailbird_pin', to: 'api#jailbird_pin'
 end
