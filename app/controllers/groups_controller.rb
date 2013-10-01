@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
       flash[:errors] = g.errors.full_messages
       redirect_to new_group_path
     else
-      redirect_to root_path
+      redirect_to contacts_path
     end
   end
 
@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
     group = Group.find(params[:id])
     if group.update_attributes(params[:group])
       flash[:notice] = "Successfully Updated!"
-      redirect_to root_path
+      redirect_to contacts_path
     else
       flash[:errors] = contact.errors.full_messages
       render edit_group_path
@@ -38,7 +38,7 @@ class GroupsController < ApplicationController
 
   def destroy
     Group.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to contacts_path
   end
 
 end
