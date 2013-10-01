@@ -1,5 +1,4 @@
 require 'spec_helper'
-Phonelib.default_country = "US"
 
 describe Contact do
 
@@ -7,13 +6,6 @@ describe Contact do
   it { should allow_mass_assignment_of :phone_number }
 
   context 'validations' do
-    before do
-      @contact = FactoryGirl.build(:contact)
-      @contact.save
-    end
-
-    subject { @contact }
-
     it { should validate_presence_of :name }
     it { should validate_presence_of :phone_number }
     it { should validate_uniqueness_of :phone_number }

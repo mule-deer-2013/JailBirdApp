@@ -6,7 +6,7 @@ gem 'rails', '3.2.14'
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'twilio-ruby'
-gem 'phonelib'
+gem 'phonelib', git: 'http://github.com/daddyz/phonelib.git'
 gem 'nokogiri'
 gem 'debugger'
 gem 'devise'
@@ -14,10 +14,12 @@ gem 'faker'
 gem 'pg'
 
 
-group :test do
+group :test, :development do
   gem "shoulda-matchers"
   gem "factory_girl_rails"
-  gem "capybara"
+  gem "capybara", "~>2.0"
+  gem "selenium-webdriver"  # Firefox (opens window)
+  #gem "capybara-webkit"     # Chrome / Safari (headless)
   gem "guard-rspec"
 end
 
