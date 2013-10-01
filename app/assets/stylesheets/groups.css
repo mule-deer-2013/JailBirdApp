@@ -1,15 +1,8 @@
-.contact{
-  border: 5px solid yellow;
-  width: 80px;
-  height: 30px;
-  margin: 10px;
-}
-
-li{
+.group{
   list-style-type: none;
-  background-color: green;
   width: 300px;
-  height: 200px;
-  margin: 30px;
+  height: 300px;
+  margin: 50px;
+  background-color: green;
   display: inline-block;
 }
