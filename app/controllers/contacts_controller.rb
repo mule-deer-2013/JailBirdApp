@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class ContactsController < ApplicationController
 
   def index
@@ -7,6 +9,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    render layout: false
   end
 
   def create
@@ -21,6 +24,8 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find(params[:id])
+    render layout: false
+
   end
 
   def show

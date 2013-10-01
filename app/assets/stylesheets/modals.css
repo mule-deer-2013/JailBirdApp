@@ -1,0 +1,14 @@
+#modalBox {
+  top: 100px !important;
+  left: 10px;
+  width: 40%;
+  min-height: 30%;
+  max-height: 60%;
+  overflow: scroll;
+  background-color: #e5e5e5;
+  padding: 20px;
+  margin: 0 0 0 -20% !important;
+  font-weight: lighter;
+  font-size: 20px;
+}
+

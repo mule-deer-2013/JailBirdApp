@@ -8,11 +8,15 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700|Roboto:400,500,900,100' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <div class="logout">
+  <nav>
+
     <% if user_signed_in? %>
+      <%= link_to '+ Google Contacts', '/google/new' %>
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
     <% end %>
-  </div>
+
+  </nav>
 	<p class="notice"><%= notice %></p>
 	<p class="alert"><%= alert %></p>
 	<%= yield %>

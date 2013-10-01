@@ -6,8 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+contacts = {Alex: "9098638510", Elaine: "2078414568", Nick: "7039818974", Charlie: "3038184974"}
 
-Contact.create( name: "Alex", phone_number: "9098638510" )
-Contact.create( name: "Elaine", phone_number: "2078414568"  )
-Contact.create( name: "Nick", phone_number: "7039818974" )
-Contact.create( name: "Charlie", phone_number: "3038184974" )
+g = Group.create(name: "The Midnight Riders")
+contacts.each {|name, num| g.contacts << Contact.create(name: name, phone_number: num, user_id:1) }

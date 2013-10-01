@@ -1,5 +1,5 @@
 <div id="groups">
-<% @groups.each do |g|  %>
-  <li><%= link_to g.name, group_path(g) %></li>
-<% end %>
+  <% @groups.each do |g|  %>
+    <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+  <% end %>
 </div>

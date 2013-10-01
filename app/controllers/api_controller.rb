@@ -3,17 +3,41 @@ class ApiController < ActionController::Base
   CLIENT = Twilio::REST::Client.new ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN']
 
   def calls
-    render 'calls.xml.builder'
+    render 'welcome.xml.builder'
+  end
+
+  def phone_validation
+    phone = Phonelib.parse(params["Digits"]).sanitized
+    p phone
+    p 'x' * 80
+    if User.find_by_phone_number(phone)
+      @phone = phone
+      render 'pin_validation.xml.builder'
+    else
+      render 'retry_phone_validation.xml.builder'
+    end
+  end
+
+  def jailbird_pin
+    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"])
+    if user.count == 1
+      @user_id = user.first.id
+      render 'ivr.xml.builder'
+    else
+      @phone = params[:phone]
+      render 'retry_pin_validation.xml.builder'
+    end
   end
 
   def ivr
-      contacts = Contact.all
-      groups = Group.all
+    user = User.find(params[:user])
+    contacts = user.contacts
+    groups = user.groups
 
-    r = Twilio::TwiML::Response.new do |r|
+    response = Twilio::TwiML::Response.new do |r|
 
       if params['Digits'] == "1"
-        r.Gather :numDigits => '2', :action => '/api/dial/', :method => 'get' do |g|
+        r.Gather :numDigits => '2', :action => '/api/dial', :method => 'get' do |g|
 
           contacts.each do |contact|
             g.Say "To call #{contact.name}, press #{contact.id}"
@@ -36,7 +60,7 @@ class ApiController < ActionController::Base
       end
     end
 
-    render :xml => r.text
+    render :xml => response.text
   end
 
   def dial_contact
@@ -101,7 +125,7 @@ class ApiController < ActionController::Base
 
   def sending_voice_message
     response = Twilio::TwiML::Response.new do |r|
-    r.Play params[:recording]
+      r.Play params[:recording]
     end
 
     render :xml => response.text

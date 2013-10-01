@@ -1,0 +1,8 @@
+.group{
+  list-style-type: none;
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+  background-color: green;
+  display: inline-block;
+}

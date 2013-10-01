@@ -81,6 +81,7 @@
 				$overlay.click(function() {
 					if (o.overlayClose)
 						$modal.trigger('closeModal');
+						$modal.html('');
 				});
 
 				$(document).keydown(function(e) {
