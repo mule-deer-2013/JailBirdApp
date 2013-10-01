@@ -1,5 +1,3 @@
-<div id="groups">
   <% @groups.each do |g|  %>
     <li class="group" data-id="<%= g.id %>"><%= link_to g.name, group_path(g) %></li>
   <% end %>
-</div>

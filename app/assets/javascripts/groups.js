@@ -1,5 +1,6 @@
 $(document).ready(
-  $('.contacts').delegate('.contact', function(){
-    $(this).draggable()
-  })
+    $('.contacts_groups').on("click", function(){
+      console.log(this);
+    })
+    // $('.contact').draggable({ helper: "clone" })
 )

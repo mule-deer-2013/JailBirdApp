@@ -1,9 +1,15 @@
-<div>
+<div class="contacts_groups">
   <% if user_signed_in? %>
     <%= link_to 'Add your contacts from Google', '/google/import' %>
-    <%= render "users_contacts" %>
-    <%= link_to "create a new contact", new_contact_path %>
-    <%= link_to "create a new group", new_group_path %>
+      <%= render "users_contacts" %>
+    <div class="new_button">
+      <%= button_to "+ contact", new_contact_path, :method => 'get' %>
+      <%= button_to "+ group", new_group_path, :method => 'get' %>
+    </div>
+    <h3>Groups</h3>
+    <div id="groups">
     <%= render "users_groups" %>
+    </div>
   <% end %>
 </div>
+
