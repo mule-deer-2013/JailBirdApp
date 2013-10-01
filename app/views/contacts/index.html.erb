@@ -1,9 +1,7 @@
 <div>
   <% if user_signed_in? %>
     <%= link_to 'Add your contacts from Google', '/google/new' %>
-    <div id="name_column">
     <%= render "users_contacts" %>
-    </div>
     <%= link_to "create a new contact", new_contact_path %>
     <%= link_to "create a new group", new_group_path %>
     <%= render "users_groups" %>
