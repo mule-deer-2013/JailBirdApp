@@ -1,55 +1,23 @@
-.panel {
-    color: white;
-    margin-top: 20%;
-    margin-left: 55%;
+#frontpage {
+  background-image: url('home_bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+ .panel {
+    margin: 0 auto;
+    width: 130px;
+    height: 130px;
+    position: relative;
     font-size: .8em;
     -webkit-perspective: 600px;
     -moz-perspective: 600px;
-}
-
-.panel label {
-  display: none
-}
-
-
-.panel .signup input, .panel .signin input {
-  height: 35px;
-  width: 300px;
-  font-size: 25px;
-  color: #666;
-  margin: -5px 0 -5px 0;
-  border-radius: 10px;
-  padding-left: 10px
-}
-
-.panel .signup input[type=submit], .panel .signin input[type=submit] {
-  margin-top: 15px;
-  width: 315px;
-  height: 40px;
-  line-height: 10px;
-  color: white;
-  font-family: 'Roboto';
-  font-weight: lighter;
-  font-size: 25px;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: 0 1px 1px rgba(0,0,0,.3);
-  border-radius: 10px;
-  box-shadow: 0 3px 6px #333;
-  border: solid 1px #0099CC;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0099CC), to(#33B5E5));
-}
-
-.panel .signup input[type=submit]:active, .panel .signin input[type=submit]:active {
-  position: relative;
-  top: 1px;
-}
-
-.panel .signup ::-webkit-input-placeholder, .panel .signin ::-webkit-input-placeholder {
-   font-family: 'Roboto';
-   font-weight: lighter;
-   font-size: 20px;
 }
 
 .panel .signup {
@@ -71,11 +39,7 @@
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
-.panel.flip .signup {
-    z-index: 900;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-}
+
 .panel .signin {
     position: absolute;
     top: 0;
@@ -95,10 +59,73 @@
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
+
+.panel.flip .signup {
+    z-index: 900;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+}
+
 .panel.flip .signin {
-    z-index: 1000;
+    z-index: 800;
     -webkit-transform: rotateX(0deg) rotateY(0deg);
     -moz-transform: rotateX(0deg) rotateY(0deg);
+}
+
+.panel {
+    color: white;
+    margin-top: 20%;
+    margin-left: 55%;
+    font-size: .8em;
+    -webkit-perspective: 600px;
+    -moz-perspective: 600px;
+}
+
+.panel label {
+  display: none
+}
+
+
+.panel .signup input, .panel .signin input {
+  height: 40px;
+  width: 300px;
+  font-size: 25px;
+  color: #666;
+  margin: -5px 0 -5px 0;
+  border-radius: 10px;
+  padding-left: 10px;
+  border: 2px solid #666;
+  box-shadow: inset 1px 1px 15px 1px #666
+}
+
+.panel .signup input[type=submit], .panel .signin input[type=submit] {
+  margin-top: 15px;
+  width: 315px;
+  height: 40px;
+  line-height: 10px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size: 25px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  border-radius: 10px;
+  box-shadow: 0 3px 6px #333;
+  border: solid 1px #0099CC;
+  background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
+}
+
+.panel .signup input[type=submit]:active, .panel .signin input[type=submit]:active {
+  position: relative;
+  top: 1px;
+}
+
+.panel .signup ::-webkit-input-placeholder, .panel .signin ::-webkit-input-placeholder {
+   font-family: 'Roboto';
+   font-weight: lighter;
+   font-size: 20px;
 }
 
 .form_title {
@@ -107,5 +134,4 @@
     font-size: 30px;
     text-shadow: 2px 2px 3px black;
     margin-bottom: 5px
-
 }

@@ -12,11 +12,19 @@
  *= require_tree .
  */
 
-body {
-  background-image: url('home_bg.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+*:focus {
+    outline: none;
+    box-shadow: 0px 0px 2pt 2pt #33B5E5
 }
 
+body {
+  background-image: url('bg.jpg'); 
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto'
+}
 
+a {
+  text-decoration: none;
+  border-bottom-style: 1px dotted black;
+}
