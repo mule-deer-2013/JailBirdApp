@@ -9,3 +9,15 @@ margin-left: auto;
 margin-right: auto;
 border-radius: 15px;
 }
+
+#groups
+{
+background-color:white;
+width:500px;
+height:150px;
+overflow-y:scroll;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+border-radius: 15px;
+}
