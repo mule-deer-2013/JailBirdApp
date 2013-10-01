@@ -10,7 +10,6 @@ class Contact < ActiveRecord::Base
   before_save :sanitize_number
 
   def sanitize_number
-    phone = Phonelib.parse(self.phone_number)
-    self.phone_number = "+" + "#{phone.sanitized}"
+    self.phone_number = "+" + Phonelib.parse(self.phone_number).sanitized
   end
 end

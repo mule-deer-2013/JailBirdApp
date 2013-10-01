@@ -1,4 +1,5 @@
 require 'spec_helper'
+Phonelib.default_country = "US"
 
 describe Contact do
 
@@ -6,6 +7,13 @@ describe Contact do
   it { should allow_mass_assignment_of :phone_number }
 
   context 'validations' do
+    before do
+      @contact = FactoryGirl.build(:contact)
+      @contact.save
+    end
+
+    subject { @contact }
+
     it { should validate_presence_of :name }
     it { should validate_presence_of :phone_number }
     it { should validate_uniqueness_of :phone_number }
@@ -17,22 +25,23 @@ describe Contact do
   end
 
   context 'creation' do
-    let! (:contact) { FactoryGirl.build(:contact) }
+    let!(:contact) { FactoryGirl.build(:contact) }
 
-    it "should only allow correctly formatted phone numbers" do
+    it "should not allow incorrectly formatted phone numbers" do
       contact.phone_number = "6789"
-      expect{contact.save}.not_to change{Contact.count}.by(1)
+      expect{contact.save}.not_to change{Contact.count}
     end
 
     it "should allow correctly formatted phone numbers" do
+      contact.phone_number = "19283747677"
       expect{contact.save}.to change{Contact.count}.by(1)
     end
 
     it "should allow editting of phone numbers" do
       contact.save
-      contact.phone_number = "0123456789"
+      contact.phone_number = "207-841-4568"
       contact.save
-      expect(contact.phone_number).to eq "0123456789"
+      expect(contact.phone_number).to eq "+12078414568"
     end
 
     it "should allow editing of names" do
