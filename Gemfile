@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem "rspec-rails", :group => [:test, :development]
 gem 'google-api-client'
 gem 'rails', '3.2.14'
+gem "jquery-ui-rails"
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'twilio-ruby'

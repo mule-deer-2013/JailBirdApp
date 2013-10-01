@@ -1,0 +1,12 @@
+<div id="contacts">
+  <% @contacts.each do |c| %>
+    <div class="draggable">
+      <span class="name">
+        <%= link_to c.name, contact_path(c) %>
+      </span>
+      <span class="phone_number">
+        <%= c.phone_number %>
+      </span>
+    </div>
+  <% end %>
+</div>
