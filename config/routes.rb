@@ -8,6 +8,7 @@ Jailbird::Application.routes.draw do
 
   resources :contacts
   resources :groups, except:[:index]
+  match '/groups/dragging_update', to: 'groups#dragging_update', :via => :post
 
   devise_scope :user do
     root to: "devise/registrations#new"

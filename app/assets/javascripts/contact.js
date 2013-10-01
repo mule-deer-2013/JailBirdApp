@@ -1,12 +1,12 @@
 function editGroup(e){
   e.preventDefault()
   $.ajax({
-    url: 'groups/'+$(this).attr('id')+'/edit',
+    url: 'groups/'+$(this).parent().attr('id')+'/edit',
     type: 'get',
   })
   .done(function(response) {
     $('#modalBox').append(response);
-  }) 
+  })
   $('#modalBox').trigger('openModal')
 }
 
@@ -18,8 +18,7 @@ function editContact(e){
   })
   .done(function(response) {
     $('#modalBox').append(response);
-  }) 
-
+  })
   $('#modalBox').trigger('openModal')
 }
 
@@ -32,7 +31,6 @@ function newContact(e){
   .done(function(response) {
     $('#modalBox').append(response);
   })
-  
   $('#modalBox').trigger('openModal')
 }
 
@@ -45,7 +43,6 @@ function newGroup(e){
   .done(function(response) {
     $('#modalBox').append(response);
   })
-  
   $('#modalBox').trigger('openModal')
 }
 
@@ -56,7 +53,6 @@ function setListeners(){
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
   $('#groups a').on('click', editGroup)
-
 }
 
 $(document).ready(function(){

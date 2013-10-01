@@ -8,7 +8,6 @@ class GroupsController < ApplicationController
   end
 
   def create
-
     g = current_user.groups.build(params[:group])
       unless g.save
       flash[:errors] = g.errors.full_messages
@@ -39,6 +38,13 @@ class GroupsController < ApplicationController
       flash[:errors] = contact.errors.full_messages
       render edit_group_path
     end
+  end
+
+  def dragging_update
+    group = Group.find(params[:id])
+    contact = Contact.find(params[:group][:contact_ids])
+    group.contacts << contact
+    redirect_to contacts_path
   end
 
   def destroy

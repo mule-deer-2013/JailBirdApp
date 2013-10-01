@@ -1,6 +1,5 @@
-
-<% if user_signed_in? %>
-
+<div class="contacts_groups">
+  <% if user_signed_in? %>
     <div id="modalBox"></div>
     <%= render "users_contacts" %>
     <div class="new_button">
@@ -8,7 +7,9 @@
       <%= button_to "+ group", new_group_path, :method => 'get', :id => "new_group" %>
     </div>
     <h3>Groups</h3>
+    <div id="groups">
     <%= render "users_groups" %>
-<% end %>
-
+    </div>
+  <% end %>
+</div>
 
