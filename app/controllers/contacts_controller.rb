@@ -45,10 +45,10 @@ class ContactsController < ApplicationController
   end
 
   def import
-    user_info = JSON.parse(RestClient.get "https://www.googleapis.com/oauth2/v2/userinfo?access_token=#{session[:access_token]}")
-    contacts_response = RestClient.get "https://www.google.com/m8/feeds/contacts/#{user_info['email']}/full?access_token=#{session[:access_token]}&max-results=1000"
+    user_info = JSON.parse(RestClient.get user_info_url(google_auth_token))
+    contacts_response = RestClient.get google_contacts_url(user_info['email'], google_auth_token)
+    # render xml: contacts_response
     @imported_contacts = parse_xml_contacts(contacts_response)
-    session[:access_token] = nil
     render :import
   end
 
