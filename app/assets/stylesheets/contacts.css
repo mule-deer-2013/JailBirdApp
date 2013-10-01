@@ -85,3 +85,56 @@ h3 {
   float: right;
   line-height: 90px
 }
+
+.edit_pic {
+  float: left;
+  margin-right: 10px;
+}
+
+.edit_card h4{
+  text-align: center;
+}
+
+.edit_card label{
+  margin-right: 0 10px 10px 0;
+
+}
+
+.edit_card  input[type=submit] {
+  margin-top: 15px;
+  width: 100px;
+  height: 25px;
+  line-height: 10px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size:15px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  box-shadow: 0 3px 6px #333;
+  border: solid 1px #0099CC;
+  background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
+}
+
+.edit_card input[type=submit]:active {
+  position: relative;
+  top: 2px;
+}
+
+.edit_card input[type=text] {
+  height: 25px;
+  width: 150px;
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0 0 0;
+  border-radius: 5px;
+  padding-left: 10px;
+  box-shadow: inset 1px 1px 3px 1px #666;
+  display: block;
+  margin-bottom: -22px
+}
+
+#delete {
+  float: right;
+  margin-top: -25px;
+}
