@@ -3,14 +3,15 @@
     <%= link_to 'Add your contacts from Google', '/google/import' %>
     <div id="name_column">
       <% @contacts.each do |c| %>
-        <div class="row">
-          <span class="name">
+
+        <%= render "card", :c => c %>
+
+<!--           <span class="name">
             <%= link_to c.name, contact_path(c) %>
           </span>
           <span class="phone_number">
             <%= c.phone_number %>
-          </span>
-        </div>
+          </span> -->
       <% end %>
     </div>
 
