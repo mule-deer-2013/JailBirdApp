@@ -3,6 +3,8 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @contacts = Contact.all
+    render layout: false
+
   end
 
   def create
@@ -19,6 +21,8 @@ class GroupsController < ApplicationController
   def edit
     @group = Group.find(params[:id])
     @contacts = Contact.all
+    render layout: false
+
   end
 
   def show
