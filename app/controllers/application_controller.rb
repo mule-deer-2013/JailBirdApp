@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     contacts_path
   end
 
+
 end

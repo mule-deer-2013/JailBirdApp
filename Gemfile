@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'rest-client'
 gem 'twilio-ruby'
 gem 'phonelib'
+gem 'nokogiri'
 gem 'debugger'
 gem 'devise'
 gem 'faker'
@@ -24,7 +25,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'uglifier', '>= 1.0.3'
 end
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

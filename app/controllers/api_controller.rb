@@ -7,7 +7,7 @@ class ApiController < ActionController::Base
   end
 
   def ivr
-      contacts = Contact.all
+      contacts = Contacts.all
       groups = Group.all
 
     r = Twilio::TwiML::Response.new do |r|

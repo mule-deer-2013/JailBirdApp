@@ -6,8 +6,9 @@ class GroupsController < ApplicationController
   end
 
   def create
-    g = Group.new(params[:group])
-    unless g.save
+
+    g = current_user.groups.build(params[:group])
+      unless g.save
       flash[:errors] = g.errors.full_messages
       redirect_to new_group_path
     else
