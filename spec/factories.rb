@@ -9,7 +9,7 @@ FactoryGirl.define do
 
   factory :contact do
     name { Faker::Name.name }
-    phone_number { "17039818974" }
+    phone_number { "17039" + (0..9).to_a.sample(6).join }
   end
 
   factory :group do
