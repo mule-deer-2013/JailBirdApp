@@ -28,3 +28,26 @@ a {
   text-decoration: none;
   border-bottom-style: 1px dotted black;
 }
+
+.contact {
+  height: 70px;
+  width: 250px;
+  background-color: white;
+  margin: 10px;
+}
+
+.contact .pic {
+  width: 70px;
+  height: 70px;
+}
+
+.contact .pic img {
+  height: 70px;
+  width: 70px;
+
+}
+
+.contact .name {
+  font-size: 20px;
+  vertical-align: center
+}
