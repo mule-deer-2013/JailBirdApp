@@ -1,19 +1,12 @@
-<div>
+
   <% if user_signed_in? %>
-    <%= link_to 'Add your contacts from Google', '/google/import' %>
-    <div id="name_column">
-      <% @contacts.each do |c| %>
 
-        <%= render "card", :c => c %>
-
-      <% end %>
+    <%= render "users_contacts" %>
+    <div class="new_button">
+      <%= button_to "+ contact", new_contact_path, :method => 'get' %>
+      <%= button_to "+ group", new_group_path, :method => 'get' %>
     </div>
-
-    <%= link_to "create a new contact", new_contact_path %>
-    <%= link_to "create a new group", new_group_path %>
-
-    <% @groups.each do |g|  %>
-      <li><%= link_to g.name, group_path(g) %></li>
-    <% end %>
+    <h3>Groups</h3>
+    <%= render "users_groups" %>
   <% end %>
-</div>
+

@@ -8,7 +8,7 @@ client = Google::APIClient.new(
 
 client.authorization.client_id = client_secrets.client_id
 client.authorization.client_secret = client_secrets.client_secret
-client.authorization.scope = 'https://www.google.com/m8/feeds'
+client.authorization.scope = ['https://www.google.com/m8/feeds', 'https://www.googleapis.com/auth/userinfo.email']
 
 GOOGLE_CLIENT = client
 ENV['GOOGLE_APP_ID'] = client_secrets.client_id

@@ -34,11 +34,14 @@ a {
   width: 250px;
   background-color: white;
   margin: 10px;
+  display: inline-block;
+  box-shadow: 0 0 10px #666;
 }
 
 .contact .pic {
   width: 70px;
   height: 70px;
+  float: left
 }
 
 .contact .pic img {
@@ -49,5 +52,5 @@ a {
 
 .contact .name {
   font-size: 20px;
-  line-height: 100px
+  line-height: 70px
 }
