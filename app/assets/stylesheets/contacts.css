@@ -48,7 +48,7 @@
 
 .new_button input[type=submit]:active, .panel .signin input[type=submit]:active {
   position: relative;
-  top: 1px;
+  top: 2px;
 }
 
 h3 {

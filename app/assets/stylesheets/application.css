@@ -32,12 +32,12 @@ a {
 
 nav {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 40px;
   text-align: right;
-  background-color: black;
+  background: #111;
   box-shadow: 0 5px 10px #999;
 }
 
@@ -47,5 +47,6 @@ nav a {
   font-weight: lighter;
   line-height: 40px;
   margin: 0 10px 0 10px;
-  font-size: 20px
+  font-size: 20px;
+
 }
