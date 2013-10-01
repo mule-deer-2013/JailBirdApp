@@ -1,6 +1,6 @@
 xml.instruct!
 xml.Response do
-  xml.Gather(:numDigits => "1", :action => "/api/ivr", :method => "get") do
+  xml.Gather(:numDigits => "1", :action => "/api/ivr/?user=#{@user_id}", :method => "get") do
     xml.Say(:voice => "alice", :language => "en-AU") do
       xml.text! "To navigate your address book, press 1."
     end

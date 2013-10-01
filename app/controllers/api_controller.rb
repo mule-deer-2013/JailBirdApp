@@ -8,6 +8,8 @@ class ApiController < ActionController::Base
 
   def phone_validation
     phone = Phonelib.parse(params["Digits"]).sanitized
+    p phone
+    p 'x' * 80
     if User.find_by_phone_number(phone)
       @phone = phone
       render 'pin_validation.xml.builder'
@@ -19,6 +21,7 @@ class ApiController < ActionController::Base
   def jailbird_pin
     user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"])
     if user.count == 1
+      @user_id = user.first.id
       render 'ivr.xml.builder'
     else
       @phone = params[:phone]
@@ -27,8 +30,9 @@ class ApiController < ActionController::Base
   end
 
   def ivr
-    contacts = Contact.all
-    groups = Group.all
+    user = User.find(params[:user])
+    contacts = user.contacts
+    groups = user.groups
 
     response = Twilio::TwiML::Response.new do |r|
 
