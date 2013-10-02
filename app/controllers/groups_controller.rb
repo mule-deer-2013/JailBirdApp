@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
     g = current_user.groups.build(params[:group])
       unless g.save
       flash[:errors] = g.errors.full_messages
-      redirect_to new_group_path
+      redirect_to contacts_path
     else
       redirect_to contacts_path
     end
