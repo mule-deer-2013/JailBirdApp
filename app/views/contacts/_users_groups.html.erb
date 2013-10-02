@@ -1,5 +1,40 @@
 <div id="groups">
-  <% @groups.each do |g|  %>
-    <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+  <% if current_user.groups.all.count < 4 %>
+
+    <% @groups.each do |g|  %>
+      <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+    <% end %>
+
+  <% elsif @page == @max_page %>
+
+    <%= link_to image_tag('/arrow_left.png', class: 'arrow_left'), "contacts?page=#{(@page - 1)}" %>
+    <% @groups.each do |g|  %>
+      <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+    <% end %>
+    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_right'), "contacts?page=#{(@page + 1)}" %>
+
+
+  <% elsif @page < @max_page && @page > 0 %>
+
+      <%= link_to image_tag('/arrow_left.png', class: 'arrow_left'), "contacts?page=#{(@page - 1)}" %>
+
+        <% @groups.each do |g|  %>
+          <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+        <% end %>
+
+      <%= link_to image_tag('/arrow_right.png', class: 'arrow_right'), "contacts?page=#{(@page + 1)}" %>
+
+  <% else %>
+
+    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_left'), "contacts?page=#{(@page - 1)}" %>
+
+    <% @groups.each do |g|  %>
+      <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
+    <% end %>
+
+    <%= link_to image_tag('/arrow_right.png', class: 'arrow_right'), "contacts?page=#{(@page + 1)}" %>
+
   <% end %>
 </div>
+
+

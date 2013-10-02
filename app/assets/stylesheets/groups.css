@@ -1,8 +1,30 @@
 .group{
   list-style-type: none;
-  width: 300px;
-  height: 300px;
-  margin: 50px;
-  background-color: green;
+  width: 200px;
+  height: 200px;
+  margin: 0 30px 0 30px;
+  background-image: url('/circle.png');
+  background-size: cover;
   display: inline-block;
+}
+
+.group a {
+  line-height: 200px;
+  font-size: 30px;
+  color: black;
+}
+
+.arrow_left, .arrow_right {
+  height: 70px;
+  clear: both;
+}
+
+.arrow_left {
+  margin-top: 60px;
+  float: left;
+}
+
+.arrow_right {
+  margin-top: -67px;
+  float: right;
 }

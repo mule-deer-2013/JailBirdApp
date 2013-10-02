@@ -5,7 +5,6 @@ var Panel = {
 
   togglePanelForm: function(e) {
     e.preventDefault();
-    console.log(this);
     $(this).closest('.panel').toggleClass('flip');
   }
 }

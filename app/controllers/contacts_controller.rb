@@ -1,10 +1,23 @@
 require 'nokogiri'
 
 class ContactsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
+    unless current_user.phone_number
+      render "/start/index"
+    end
     @contacts = current_user.contacts
-    @groups = current_user.groups
+    @page = params[:page].to_i
+    @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
+    div, mod = ((current_user.groups.length).divmod(3))
+    if div == 0
+      @max_page = 0
+    elsif mod == 0
+      @max_page = div
+    else
+      @max_page = div
+    end
   end
 
   def new
@@ -14,18 +27,16 @@ class ContactsController < ApplicationController
 
   def create
     u = current_user.contacts.build(params[:contact])
-    unless u.save
-      flash[:errors] = u.errors.full_messages
-      redirect_to new_contact_path
-    else
-      redirect_to root_path
+    if u.save
+      flash[:notice] = "Successfully Created!"
     end
+    flash[:errors] = u.errors.full_messages
+    redirect_to contacts_path
   end
 
   def edit
     @contact = Contact.find(params[:id])
     render layout: false
-
   end
 
   def show
@@ -36,17 +47,14 @@ class ContactsController < ApplicationController
     contact = Contact.find(params[:id])
     if contact.update_attributes(params[:contact])
       flash[:notice] = "Successfully Updated!"
-      redirect_to root_path
-    else
-
-      flash[:errors] = contact.errors.full_messages
-      redirect_to edit_contact_path
     end
+    flash[:errors] = contact.errors.full_messages
+    redirect_to contacts_path
   end
 
   def destroy
     Contact.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to contacts_path
   end
 
   def import
@@ -73,7 +81,7 @@ class ContactsController < ApplicationController
   def about
     render :about
   end
-  
+
   private
 
   def parse_xml_contacts(contacts_response)
@@ -91,6 +99,4 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
-
-
 end

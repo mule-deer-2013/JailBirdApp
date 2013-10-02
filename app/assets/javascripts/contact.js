@@ -1,11 +1,11 @@
-function editGroup(e){
+function showGroup(e){
   e.preventDefault()
   $.ajax({
-    url: 'groups/'+$(this).parent().attr('id')+'/edit',
-    type: 'get',
+    url: 'groups/'+$(this).attr('id'),
+    type: 'get'
   })
   .done(function(response) {
-    $('#modalBox').append(response);
+    $('#modalBox').html(response);
   })
   $('#modalBox').trigger('openModal')
 }
@@ -49,15 +49,25 @@ function newGroup(e){
 /////////////////////////////////////////
 
 function setListeners(){
+  $('.errors').delay( 2000 ).fadeOut( 1000 );
+  $('.notice').delay( 2000 ).fadeOut( 1000 );
+  $('.alert').delay( 2000 ).fadeOut( 1000 );
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('#contacts .contact').on('click', editContact)
-  $('#groups a').on('click', editGroup)
+  // $('#groups a').on('click', editGroup)
   $('#import_container').on('click', 'div.import', selectContact)
   $('#import_container').on('click', '.import_button', addContacts)
+  $('#groups_paginate').on('click', "#groups .group a", showGroup)
+  $('#groups_paginate').on('click', 'img', page)
+  $('#filter').on('keyup change', filterStuff)
+  $('.group').on('click', showGroup)
+  $('#start input[type=submit]').on('click', getPinPage)
+  $('#start').on('submit', '#new_user', getMainApp)
 }
 
 $(document).ready(function(){
+  setListeners();
   $('#modalBox').easyModal({
     overlay: 0.9,
     onClose: function(myModal){
@@ -65,5 +75,4 @@ $(document).ready(function(){
     }
 
   });
-  setListeners()
 })

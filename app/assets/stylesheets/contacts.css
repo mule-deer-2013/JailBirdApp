@@ -9,7 +9,7 @@
 
 #groups {
   width:960px;
-  height:150px;
+  height:300px;
   overflow-y:scroll;
   text-align: center;
   margin-left: auto;
@@ -94,13 +94,17 @@ h3 {
   text-align: center;
 }
 
-.edit_card label{
+.edit_card label {
   margin: 0 10px 10px 0;
 
 }
 
-.edit_card  input[type=submit] {
-  margin-top: 15px;
+#new_contact label {
+  margin-top: 20px
+}
+
+.edit_card  input[type=submit], #new_contact input[type=submit], #new_group input[type=submit] {
+  margin-top: 35px;
   width: 100px;
   height: 25px;
   line-height: 10px;
@@ -120,7 +124,7 @@ h3 {
   top: 2px;
 }
 
-.edit_card input[type=text] {
+.edit_card input[type=text], #new_contact input[type=text], #new_group input[type=text] {
   height: 25px;
   width: 150px;
   font-size: 14px;
@@ -168,4 +172,23 @@ h3 {
   box-shadow: 0 3px 6px #333;
   border: solid 1px #0099CC;
   background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
+}
+
+#new_contact label, #new_group label{
+  display: block;
+}
+
+.errors{
+  background-color: #FF6666;
+  text-align: center;
+}
+
+.notice{
+text-align: center;
+background-color: #26CC26;
+}
+
+.alert{
+text-align: center;
+background-color: yellow;
 }

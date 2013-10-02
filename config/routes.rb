@@ -8,6 +8,11 @@ Jailbird::Application.routes.draw do
   match '/contacts/import/add', to: 'contacts#add_imports', :via => :post
 
   resources :contacts
+  authenticated :user do
+    root :to => "contacts#index"
+  end
+
+  match '/paginate/groups', to: 'groups#paginate'
   resources :groups, except:[:index]
   match '/groups/dragging_update', to: 'groups#dragging_update', :via => :post
 
@@ -28,4 +33,14 @@ Jailbird::Application.routes.draw do
   match '/api/voice_broadcasting', to: 'api#voice_broadcasting', :via => :post
   match '/api/phone_validation', to: 'api#phone_validation'
   match '/api/jailbird_pin', to: 'api#jailbird_pin'
+
+  resources :start, only: [:index]
+  match '/start/jailbird', to: 'start#jailbird'
 end
+
+
+
+
+
+
+

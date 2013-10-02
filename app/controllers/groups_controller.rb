@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @contacts = Contact.all
+    @contacts = current_user.contacts
     render layout: false
 
   end
@@ -11,21 +11,20 @@ class GroupsController < ApplicationController
     g = current_user.groups.build(params[:group])
       unless g.save
       flash[:errors] = g.errors.full_messages
-      redirect_to new_group_path
-    else
-      redirect_to contacts_path
     end
+      redirect_to contacts_path
   end
 
   def edit
     @group = Group.find(params[:id])
-    @contacts = Contact.all
+    @contacts = current_user.contacts
     render layout: false
 
   end
 
   def show
     @group = Group.find(params[:id])
+    render layout: false
   end
 
   def update
@@ -33,10 +32,9 @@ class GroupsController < ApplicationController
     group = Group.find(params[:id])
     if group.update_attributes(params[:group])
       flash[:notice] = "Successfully Updated!"
-      redirect_to contacts_path
     else
       flash[:errors] = contact.errors.full_messages
-      render edit_group_path
+      render contacts_path
     end
   end
 
@@ -50,6 +48,22 @@ class GroupsController < ApplicationController
   def destroy
     Group.find(params[:id]).destroy
     redirect_to contacts_path
+  end
+
+  def paginate
+    @page = params[:page].to_i
+    @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
+    div, mod = ((current_user.groups.length).divmod(3))
+    if div == 0
+      @max_page = 0
+    elsif mod == 0
+      @max_page = div -1
+    else
+      @max_page = div
+    end
+
+    render :partial => 'contacts/users_groups', layout: false
+
   end
 
 end
