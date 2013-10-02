@@ -4,7 +4,9 @@
   <% end %>
 </div>
 <ul class="pager">
-   <% if @page == @max_page %>
+	<% if current_user.groups.all.count < 4 %>
+		<%= nil %>
+  <% elsif @page == @max_page %>
      <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}") %></li>
   <% elsif @page < @max_page && @page > 0 %>
     <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}") %></li>

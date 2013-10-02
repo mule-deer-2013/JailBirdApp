@@ -8,12 +8,17 @@ class ContactsController < ApplicationController
     @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
     div, mod = ((current_user.groups.length).divmod(3))
     if div == 0
-      @max_page = 1
+      @max_page = 0
     elsif mod == 0
       @max_page = div
     else
-      @max_page = div + 1
+      @max_page = div
     end
+
+    p '*' * 200
+    p "this is groups #{@groups}"
+    p "this is group count#{current_user.groups.all.count}"
+    p "this is @page #{@page}"
   end
 
   def new
