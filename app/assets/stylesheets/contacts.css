@@ -137,3 +137,19 @@ h3 {
   float: right;
   margin-top: -25px;
 }
+
+.contact.import {
+  float: left;
+}
+
+.contact.import .name {
+  line-height: 100%;
+}
+
+.contact.import .phone_number {
+  line-height: 100%;
+}
+
+.selected {
+  background-color: green;
+}

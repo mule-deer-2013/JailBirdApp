@@ -1,9 +1,5 @@
 <h1>Here are your Google contacts with mobile numbers:</h1>
 
 <% @imported_contacts.each do |contact| %>
-	<div class="contact import">
-		<%= image_tag 'cop-icon.png', alt: contact[:name], size: "50x50" %>
-		<h3><%= contact[:name] %></h3>
-		<p><%= contact[:mobile] %></p>
-	</div>
+	<%= render 'import_card', contact: contact %>
 <% end %>
