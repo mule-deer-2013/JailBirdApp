@@ -1,6 +1,5 @@
 function showGroup(e){
   e.preventDefault()
-  console.log(this)
   $.ajax({
     url: 'groups/'+$(this).attr('id'),
     type: 'get',
