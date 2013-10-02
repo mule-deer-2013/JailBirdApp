@@ -57,3 +57,7 @@ nav a {
   margin-left: 20px;
   font-size: 20px;
 }
+
+input[type=text] {
+  z-index: 100
+}
