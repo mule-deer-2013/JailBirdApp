@@ -52,7 +52,10 @@ function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
-  $('#groups .group a').on('click', editGroup)
+  $('#groups_paginate').on('click', "#groups .group a", editGroup)
+  $('#groups_paginate').on('click', 'img', page)
+  $('#filter').on('keyup change', filterStuff)
+  Panel.init();
 }
 
 $(document).ready(function(){

@@ -13,13 +13,3 @@ function filterStuff (list) {
   }  
 }
 
-
-//////////////////////////////////////////////////
-
-function eventListeners () {
-  $('#filter').on('keyup change', filterStuff)
-}
-
-$(document).ready(function(){
-  eventListeners()
-})

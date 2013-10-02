@@ -1,6 +1,4 @@
-$(document).ready(function(){
-
-$('#groups_paginate').on('click', 'img', function(e){
+function page (e) {
 	e.preventDefault();
 	var link = $(this).parent().attr("href")
 	var match = /\d+$/
@@ -15,18 +13,5 @@ $('#groups_paginate').on('click', 'img', function(e){
 		console.log(response)
 		$('#groups_paginate').html(response);
 	})
-})
+}
 
-// function editContact(e){
-//   e.preventDefault()
-//   $.ajax({
-//     url: 'contacts/'+$(this).attr('id')+'/edit',
-//     type: 'get',
-//   })
-//   .done(function(response) {
-//     $('#modalBox').append(response);
-//   })
-//   $('#modalBox').trigger('openModal')
-// }
-
-});

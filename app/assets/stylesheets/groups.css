@@ -15,7 +15,7 @@
 }
 
 .arrow_left, .arrow_right {
-  height: 80px;
+  height: 70px;
   clear: both;
 }
 
@@ -25,6 +25,6 @@
 }
 
 .arrow_right {
-  margin-top: 60px;
+  margin-top: -67px;
   float: right;
 }
