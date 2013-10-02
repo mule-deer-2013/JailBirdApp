@@ -78,3 +78,8 @@ nav a {
 #error_explanation li {
   list-style-type: none
 } 
+
+#intro {
+  width: 450px !important;
+  margin: -25px;
+}
