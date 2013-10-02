@@ -52,7 +52,7 @@ function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
-  $('#groups a').on('click', editGroup)
+  $('#groups .group a').on('click', editGroup)
 }
 
 $(document).ready(function(){

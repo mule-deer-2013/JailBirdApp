@@ -14,11 +14,6 @@ class ContactsController < ApplicationController
     else
       @max_page = div
     end
-
-    p '*' * 200
-    p "this is groups #{@groups}"
-    p "this is group count#{current_user.groups.all.count}"
-    p "this is @page #{@page}"
   end
 
   def new
