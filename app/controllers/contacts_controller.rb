@@ -5,6 +5,9 @@ class ContactsController < ApplicationController
   def index
     @contacts = current_user.contacts
     @groups = current_user.groups
+    unless current_user.phone_number
+      render "/start/index", layout: false
+    end
   end
 
   def new

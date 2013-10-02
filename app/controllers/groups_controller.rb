@@ -26,6 +26,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    render layout: false
   end
 
   def update

@@ -1,15 +1,12 @@
-<div class="contacts_groups">
-  <% if user_signed_in? %>
-    <div id="modalBox"></div>
-    <%= render "users_contacts" %>
-    <div class="new_button">
-      <%= button_to "+ contact", new_contact_path, :method => 'get', :id => "new_contact" %>
-      <%= button_to "+ group", new_group_path, :method => 'get', :id => "new_group" %>
-    </div>
-    <h3>Groups</h3>
-    <div id="groups">
-    <%= render "users_groups" %>
-    </div>
-  <% end %>
-</div>
-
+<% if user_signed_in? %>
+  <div id="modalBox"></div>
+  <%= render "users_contacts" %>
+  <div class="new_button">
+    <%= button_to "+ contact", new_contact_path, :method => 'get', :id => "new_contact" %>
+    <%= button_to "+ group", new_group_path, :method => 'get', :id => "new_group" %>
+  </div>
+  <h3>Groups</h3>
+  <div id="groups">
+  <%= render "users_groups" %>
+  </div>
+<% end %>

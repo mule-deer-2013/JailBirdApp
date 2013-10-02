@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem "rspec-rails", :group => [:test, :development]
 gem 'google-api-client'
@@ -7,7 +7,7 @@ gem "jquery-ui-rails"
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'twilio-ruby'
-gem 'phonelib'
+gem 'phonelib', git: 'http://github.com/daddyz/phonelib.git'
 gem 'nokogiri'
 gem 'debugger'
 gem 'devise'
