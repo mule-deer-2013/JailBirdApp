@@ -36,7 +36,6 @@ class ApiController < ActionController::Base
 
       if params['Digits'] == "1"
         r.Gather :numDigits => '2', :action => '/api/dial', :method => 'get' do |g|
-
           contacts.each do |contact|
             g.Say "To call #{contact.name}, press #{contact.id}"
           end

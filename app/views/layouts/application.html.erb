@@ -11,7 +11,7 @@
 
   <nav>
     <% if user_signed_in? %>
-      <%=   link_to "Jailbird 480.725.2473", root_path, id:'twilio_number' %>
+      <%= link_to "Jailbird 480.725.2473", root_path, id:'twilio_number' %>
       <%= link_to 'Edit Profile', edit_user_registration_path %>
       <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
     <% end %>
@@ -21,5 +21,5 @@
 	<p class="alert"><%= alert %></p>
 	<%= yield %>
 	</body>
-  
+
 </html>

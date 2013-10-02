@@ -22,6 +22,20 @@ function editContact(e){
   $('#modalBox').trigger('openModal')
 }
 
+function editGroup(e){
+  var url = $(this).attr('href')
+  console.log(url)
+  e.preventDefault()
+  $.ajax({
+    url: url,
+    type: 'get',
+  })
+  .done(function(response) {
+    $('#modalBox').html(response);
+  })
+  $('#modalBox').trigger('openModal')
+}
+
 function newContact(e){
   e.preventDefault()
   $.ajax({
@@ -59,6 +73,7 @@ function setListeners(){
   $('#filter').on('keyup change', filterStuff)
   Panel.init();
   $('.group').on('click', showGroup)
+  $('#modalBox').on('click', 'a', editGroup)
 }
 
 $(document).ready(function(){
