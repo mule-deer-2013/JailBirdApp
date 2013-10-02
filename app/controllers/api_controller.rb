@@ -8,8 +8,6 @@ class ApiController < ActionController::Base
 
   def phone_validation
     phone = Phonelib.parse(params["Digits"]).sanitized
-    p phone
-    p 'x' * 80
     if User.find_by_phone_number(phone)
       @phone = phone
       render 'pin_validation.xml.builder'
@@ -43,14 +41,12 @@ class ApiController < ActionController::Base
             g.Say "To call #{contact.name}, press #{contact.id}"
           end
         end
-
       elsif params['Digits'] == "2"
         r.Gather :numDigits => '2', :action => '/api/sms_blast', :method => 'get' do |g|
           groups.each do |group|
             g.Say "To SMS blast #{group.name}, press #{group.id}"
           end
         end
-
       elsif params['Digits'] == "3"
         r.Gather :numDigits => '3', :action => '/api/voice_blast', :method => 'get' do |g|
           groups.each do |group|
@@ -127,7 +123,6 @@ class ApiController < ActionController::Base
     response = Twilio::TwiML::Response.new do |r|
       r.Play params[:recording]
     end
-
     render :xml => response.text
   end
 end
