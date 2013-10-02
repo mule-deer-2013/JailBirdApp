@@ -31,13 +31,13 @@ class ApiController < ActionController::Base
     user = User.find(params[:user])
     contacts = user.contacts
     groups = user.groups
+    favorites = groups.find_by_name("Favorites").contacts.order
 
     response = Twilio::TwiML::Response.new do |r|
-
       if params['Digits'] == "1"
-        r.Gather :numDigits => '2', :action => '/api/dial', :method => 'get' do |g|
-          contacts.each do |contact|
-            g.Say "To call #{contact.name}, press #{contact.id}"
+        r.Gather :numDigits => "2", :action => "/api/dial/?user=#{user.id}", :method => "get" do |g|
+          favorites.each_with_index do |contact, index|
+            g.Say "To call #{contact.name}, press #{index+1}."
           end
         end
       elsif params['Digits'] == "2"
@@ -59,12 +59,16 @@ class ApiController < ActionController::Base
   end
 
   def dial_contact
-    r = Twilio::TwiML::Response.new do |r|
-      r.Dial Contact.find(params['Digits']).phone_number
+    user = User.find(params[:user])
+    groups = user.groups
+    favorites = groups.find_by_name("Favorites").contacts.order
+
+    response = Twilio::TwiML::Response.new do |r|
+      r.Dial favorites[(params['Digits'].to_i - 1)].phone_number
       r.Say 'The call failed or the remote party hung up. Goodbye.'
     end
 
-    render :xml => r.text
+    render :xml => response.text
   end
 
   def transcribe_call

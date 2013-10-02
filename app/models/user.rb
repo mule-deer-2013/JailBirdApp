@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # validates :phone_number, phone: true
   validates :jailbird_pin, length: { is: 4 }
 
   has_many :groups, dependent: :destroy
@@ -13,12 +12,19 @@ class User < ActiveRecord::Base
                   :provider, :remember_me, :phone_number, :jailbird_pin
 
   before_save :sanitize_number
+  after_create :default_groups
 
   def sanitize_number
     if self.phone_number
       phone = Phonelib.parse(self.phone_number)
       self.phone_number = "#{phone.sanitized}"
     end
+  end
+
+  def default_groups
+    self.groups << Group.create(name: "Favorites")
+    self.groups << Group.create(name: "Friends")
+    self.groups << Group.create(name: "Family")
   end
 
 end
