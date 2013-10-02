@@ -59,14 +59,13 @@ class GroupsController < ApplicationController
     if div == 0
       @max_page = 0
     elsif mod == 0
-      @max_page = div
+      @max_page = div -1
     else
       @max_page = div
     end
-    p "this is @page #{@page}"
-    p "this is @groups #{@groups}"
-    p "this is @max_page #{@max_page}"
+
     render :partial => 'contacts/users_groups', layout: false
+
   end
 
 end

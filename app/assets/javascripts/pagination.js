@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-$('#groups_paginate').on('click', '.pager .next', function(e){
+$('#groups_paginate').on('click', 'img', function(e){
 	e.preventDefault();
-	var link = $(this).attr("href")
+	var link = $(this).parent().attr("href")
 	var match = /\d+$/
 	var pageNumber = match.exec(link)
 
