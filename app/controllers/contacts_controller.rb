@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
       @max_page = div
     else
       @max_page = div
+    end
   end
 
   def new
@@ -88,6 +89,5 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
-
 
 end
