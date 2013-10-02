@@ -1,7 +1,10 @@
-<h1>Here are your Google contacts with mobile numbers:</h1>
-<div class="import_message"></div>
+<h1>Click on cards to select contacts:</h1>
+<div class="import_message">
+	<%= flash[:error] %>
+</div>
 <div id='import_container'>
-	<button class='import_button' type='button'>+import contacts</button>
+	<button class='import_button' type='button'>+ import contacts</button>
+	<%= link_to "Cancel", root_path, class: 'cancel_link' %>
 	<br><br>
 	<% @imported_contacts.each_with_index do |contact, index| %>
 		<%= render 'import_card', contact: contact, i: index %>
