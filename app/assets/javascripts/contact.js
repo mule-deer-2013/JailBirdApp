@@ -49,6 +49,8 @@ function newGroup(e){
 /////////////////////////////////////////
 
 function setListeners(){
+  $('.errors').delay( 2000 ).fadeOut( 1000 );
+  $('.notice').delay( 2000 ).fadeOut( 1000 );
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
