@@ -51,8 +51,10 @@ function newGroup(e){
 function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
-  $('.contact').on('click', editContact)
+  $('#contacts .contact').on('click', editContact)
   $('#groups a').on('click', editGroup)
+  $('#import_container').on('click', 'div.import', selectContact)
+  $('#import_container').on('click', '.import_button', addContacts)
 }
 
 $(document).ready(function(){

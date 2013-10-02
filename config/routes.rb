@@ -5,6 +5,7 @@ Jailbird::Application.routes.draw do
   match '/google/new', to: 'google_api#new'
   match '/google/create', to: 'google_api#create'
   match '/contacts/import', to: 'contacts#import'
+  match '/contacts/import/add', to: 'contacts#add_imports', :via => :post
 
   resources :contacts
   resources :groups, except:[:index]

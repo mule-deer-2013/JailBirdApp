@@ -1,5 +1,9 @@
 <h1>Here are your Google contacts with mobile numbers:</h1>
-
-<% @imported_contacts.each do |contact| %>
-	<%= render 'import_card', contact: contact %>
-<% end %>
+<div class="import_message"></div>
+<div id='import_container'>
+	<button class='import_button' type='button'>+import contacts</button>
+	<br><br>
+	<% @imported_contacts.each_with_index do |contact, index| %>
+		<%= render 'import_card', contact: contact, i: index %>
+	<% end %>
+</div>

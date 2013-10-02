@@ -7,7 +7,7 @@ gem "jquery-ui-rails"
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'twilio-ruby'
-gem 'phonelib', git: 'http://github.com/daddyz/phonelib.git'
+gem 'phonelib', git: 'https://github.com/daddyz/phonelib.git'
 gem 'nokogiri'
 gem 'debugger'
 gem 'devise'
