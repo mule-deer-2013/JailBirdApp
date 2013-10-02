@@ -3,7 +3,7 @@ function showGroup(e){
   console.log(this)
   $.ajax({
     url: 'groups/'+$(this).attr('id'),
-    type: 'get',
+    type: 'get'
   })
   .done(function(response) {
     $('#modalBox').append(response);
@@ -53,14 +53,14 @@ function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
-  $('#groups_paginate').on('click', "#groups .group a", editGroup)
+  $('#groups_paginate').on('click', "#groups .group a", showGroup)
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
-  Panel.init();
   $('.group').on('click', showGroup)
 }
 
 $(document).ready(function(){
+  setListeners();
   $('#modalBox').easyModal({
     overlay: 0.9,
     onClose: function(myModal){
@@ -68,5 +68,4 @@ $(document).ready(function(){
     }
 
   });
-  setListeners()
 })

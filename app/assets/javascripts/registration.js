@@ -9,3 +9,7 @@ var Panel = {
   }
 }
 
+$(document).ready(function() {
+  Panel.init();
+})
+
