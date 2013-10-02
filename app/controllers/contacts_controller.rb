@@ -56,6 +56,10 @@ class ContactsController < ApplicationController
     render :import
   end
 
+  def about
+    render :about
+  end
+  
   private
 
   def parse_xml_contacts(contacts_response)
@@ -73,5 +77,6 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
+
 
 end

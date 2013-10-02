@@ -14,8 +14,10 @@ Jailbird::Application.routes.draw do
     root to: "devise/registrations#new"
   end
 
+  match '/about', to: 'api#ivr'
   match '/api/ivr', to: 'api#ivr'
   match '/api/calls', to: 'api#calls'
+  match '/about', to: 'contacts#about'
   match '/api/dial', to: 'api#dial_contact'
   match '/api/group_sms', to: 'api#group_sms'
   match '/api/sms_blast', to: 'api#sms_blast'

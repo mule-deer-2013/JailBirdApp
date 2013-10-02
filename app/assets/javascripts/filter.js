@@ -9,7 +9,7 @@ function filterStuff (list) {
     $(this).parent().find(".contact:contains(" + query + ")").slideDown()
   } 
   else {
-    $(this).parent().find(".contact").slideDown();
+    $(this).parent().find(".contact").fadeIn();
   }  
 }
 

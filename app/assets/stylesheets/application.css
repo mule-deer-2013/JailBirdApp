@@ -27,7 +27,6 @@ body {
 
 a {
   text-decoration: none;
-  border-bottom-style: 1px dotted black;
 }
 
 nav {
@@ -39,6 +38,7 @@ nav {
   text-align: right;
   background: #111;
   box-shadow: 0 5px 10px #999;
+  color: white
 }
 
 nav a {
@@ -48,5 +48,12 @@ nav a {
   line-height: 40px;
   margin: 0 10px 0 10px;
   font-size: 18px;
+}
 
+#twilio_number {
+  float: left;
+  line-height: 40px;
+  font-weight: 500;
+  margin-left: 20px;
+  font-size: 20px;
 }
