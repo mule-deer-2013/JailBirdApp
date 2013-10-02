@@ -4,5 +4,6 @@ class Group < ActiveRecord::Base
   validates :name, presence: true
 
   belongs_to :user
-  has_and_belongs_to_many :contacts
+  has_many :contacts_groups
+  has_many :contacts, through: :contacts_groups
 end

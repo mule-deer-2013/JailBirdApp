@@ -68,6 +68,7 @@ class ContactsController < ApplicationController
   def add_imports
     fail_array = []
     params['contacts'].each_value do |contact_params|
+      contact_params['name'].strip!
       import = current_user.contacts.build(contact_params)
       fail_array << contact_params['name'] unless import.save
     end
