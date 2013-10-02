@@ -1,6 +1,5 @@
 function showGroup(e){
   e.preventDefault()
-  console.log(this)
   $.ajax({
     url: 'groups/'+$(this).attr('id'),
     type: 'get',
@@ -53,7 +52,7 @@ function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('.contact').on('click', editContact)
-  $('#groups_paginate').on('click', "#groups .group a", editGroup)
+  // $('#groups_paginate').on('click', "#groups .group a", editGroup)
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
   Panel.init();

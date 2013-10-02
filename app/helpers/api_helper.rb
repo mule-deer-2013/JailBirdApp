@@ -1,7 +1,7 @@
 module ApiHelper
 
   def contact_list
-    contacts = Contact.all
+    contacts = current_user.contacts
     friends = {}
 
     contacts.each do |contact|

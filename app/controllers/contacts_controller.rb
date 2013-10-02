@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
 
   def index
     unless current_user.phone_number
-      render "/start/index", layout: false
+      render "/start/index"
     end
     @contacts = current_user.contacts
     @page = params[:page].to_i
@@ -84,5 +84,4 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
-
 end

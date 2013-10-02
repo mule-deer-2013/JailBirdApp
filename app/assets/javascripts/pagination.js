@@ -13,12 +13,7 @@ function page (e) {
 		.done(function(response) {
 			console.log(response)
 			$('#groups_paginate').html(response);
-		})
-	})
-	.done(function(response) {
-		console.log(response)
-		$('#groups_paginate').html(response);
-	})
+		});
 }
 
 
