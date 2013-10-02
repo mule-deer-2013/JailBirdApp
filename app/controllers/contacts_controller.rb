@@ -1,6 +1,7 @@
 require 'nokogiri'
 
 class ContactsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     unless current_user.phone_number
@@ -26,16 +27,16 @@ class ContactsController < ApplicationController
 
   def create
     u = current_user.contacts.build(params[:contact])
-    unless u.save
-      flash[:errors] = u.errors.full_messages
+    if u.save
+      flash[:notice] = "Successfully Created!"
     end
+    flash[:errors] = u.errors.full_messages
     redirect_to contacts_path
   end
 
   def edit
     @contact = Contact.find(params[:id])
     render layout: false
-
   end
 
   def show
@@ -84,5 +85,4 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
-
 end

@@ -1,5 +1,3 @@
-
-
 function getPinPage (e) {
   e.preventDefault();
   $.ajax({

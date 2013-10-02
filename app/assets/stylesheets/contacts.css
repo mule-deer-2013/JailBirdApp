@@ -146,4 +146,17 @@ h3 {
   display: block;
 }
 
+.errors{
+  background-color: #FF6666;
+  text-align: center;
+}
 
+.notice{
+text-align: center;
+background-color: #26CC26;
+}
+
+.alert{
+text-align: center;
+background-color: yellow;
+}

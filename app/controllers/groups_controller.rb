@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @contacts = Contact.all
+    @contacts = current_user.contacts
     render layout: false
 
   end
@@ -17,7 +17,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
-    @contacts = Contact.all
+    @contacts = current_user.contacts
     render layout: false
 
   end

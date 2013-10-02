@@ -7,10 +7,13 @@ Jailbird::Application.routes.draw do
   match '/contacts/import', to: 'contacts#import'
 
   resources :contacts
+  authenticated :user do
+    root :to => "contacts#index"
+  end
+
   match '/paginate/groups', to: 'groups#paginate'
   resources :groups, except:[:index]
   match '/groups/dragging_update', to: 'groups#dragging_update', :via => :post
-  devise_for :users, :controllers => { :registrations => "registrations" }
 
   devise_scope :user do
     root to: "devise/registrations#new"
@@ -33,3 +36,10 @@ Jailbird::Application.routes.draw do
   resources :start, only: [:index]
   match '/start/jailbird', to: 'start#jailbird'
 end
+
+
+
+
+
+
+

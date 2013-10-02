@@ -1,4 +1,6 @@
-<%= render 'layouts/errors' %>
+<div id="contacts_messages">
+  <%= render 'layouts/errors' %>
+</div>
 <% if user_signed_in? %>
   <div id="modalBox"></div>
   <%= render "users_contacts" %>
