@@ -1,7 +1,8 @@
-function editGroup(e){
+function showGroup(e){
   e.preventDefault()
+  console.log(this)
   $.ajax({
-    url: 'groups/'+$(this).parent().attr('id')+'/edit',
+    url: 'groups/'+$(this).attr('id'),
     type: 'get',
   })
   .done(function(response) {
@@ -56,6 +57,7 @@ function setListeners(){
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
   Panel.init();
+  $('.group').on('click', showGroup)
 }
 
 $(document).ready(function(){
