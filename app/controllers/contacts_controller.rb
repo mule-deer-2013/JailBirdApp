@@ -3,6 +3,9 @@ require 'nokogiri'
 class ContactsController < ApplicationController
 
   def index
+    unless current_user.phone_number
+      render "/start/index", layout: false
+    end
     @contacts = current_user.contacts
     @page = params[:page].to_i
     @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
@@ -13,7 +16,6 @@ class ContactsController < ApplicationController
       @max_page = div
     else
       @max_page = div
-    end
   end
 
   def new
@@ -68,7 +70,7 @@ class ContactsController < ApplicationController
   def about
     render :about
   end
-  
+
   private
 
   def parse_xml_contacts(contacts_response)
