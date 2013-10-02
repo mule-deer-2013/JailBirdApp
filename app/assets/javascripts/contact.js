@@ -56,6 +56,12 @@ function setListeners(){
 }
 
 $(document).ready(function(){
-  $('#modalBox').easyModal();
+  $('#modalBox').easyModal({
+    overlay: 0.9,
+    onClose: function(myModal){
+      $(myModal).html('');
+    }
+
+  });
   setListeners()
 })
