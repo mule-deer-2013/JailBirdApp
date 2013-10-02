@@ -20,7 +20,7 @@ Jailbird::Application.routes.draw do
     root to: "devise/registrations#new"
   end
 
-  match '/about', to: 'api#ivr'
+  match '/about', to: 'application#about'
   match '/api/ivr', to: 'api#ivr'
   match '/api/calls', to: 'api#calls'
   match '/about', to: 'contacts#about'

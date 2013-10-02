@@ -4,7 +4,6 @@ class GroupsController < ApplicationController
     @group = Group.new
     @contacts = current_user.contacts
     render layout: false
-
   end
 
   def create

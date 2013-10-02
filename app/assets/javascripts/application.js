@@ -43,6 +43,8 @@ function setListeners(){
   $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
   $('.contact .name').fitText(1.2, { minFontSize: '15px', maxFontSize: '40px' })
   $('#error_explanation ul').hide().delay(600).slideDown(300)
+  $('#modalBox').on('click', 'a', editGroup)
+
 }
 
 $(document).ready(function(){

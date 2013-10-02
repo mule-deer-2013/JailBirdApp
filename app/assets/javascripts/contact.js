@@ -10,6 +10,31 @@ function showGroup(e){
   $('#modalBox').trigger('openModal')
 }
 
+function editGroup(e){
+  var url = $(this).attr('href')
+  e.preventDefault()
+  $.ajax({
+    url: url,
+    type: 'get',
+  })
+  .done(function(response) {
+    $('#modalBox').html(response);
+  })
+  $('#modalBox').trigger('openModal')
+}
+
+function newGroup(e){
+  e.preventDefault()
+  $.ajax({
+    url: 'groups/new',
+    type: 'get',
+  })
+  .done(function(response) {
+    $('#modalBox').append(response);
+  })
+  $('#modalBox').trigger('openModal')
+}
+
 function editContact(e){
   e.preventDefault()
   $.ajax({
@@ -22,22 +47,11 @@ function editContact(e){
   $('#modalBox').trigger('openModal')
 }
 
+
 function newContact(e){
   e.preventDefault()
   $.ajax({
     url: 'contacts/new',
-    type: 'get',
-  })
-  .done(function(response) {
-    $('#modalBox').append(response);
-  })
-  $('#modalBox').trigger('openModal')
-}
-
-function newGroup(e){
-  e.preventDefault()
-  $.ajax({
-    url: 'groups/new',
     type: 'get',
   })
   .done(function(response) {
