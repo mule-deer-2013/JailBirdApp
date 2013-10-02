@@ -64,6 +64,8 @@ function setListeners(){
   // $('#groups a').on('click', editGroup)
   $('#import_container').on('click', 'div.import', selectContact)
   $('#import_container').on('click', '.import_button', addContacts)
+  $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
+  $('.contact .name').fitText(1.2, { minFontSize: '15px', maxFontSize: '40px' })
 }
 
 $(document).ready(function(){
