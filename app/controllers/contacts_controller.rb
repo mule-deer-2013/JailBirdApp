@@ -61,11 +61,14 @@ class ContactsController < ApplicationController
   def import
     user_info = JSON.parse(RestClient.get user_info_url(google_auth_token))
     contacts_response = RestClient.get google_contacts_url(user_info['email'], google_auth_token)
-    # render xml: contacts_response
     @imported_contacts = parse_xml_contacts(contacts_response)
     render :import
   end
 
+  def about
+    render :about
+  end
+  
   private
 
   def parse_xml_contacts(contacts_response)
@@ -83,5 +86,6 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
+
 
 end

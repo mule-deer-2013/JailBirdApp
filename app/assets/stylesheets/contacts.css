@@ -1,5 +1,5 @@
 #contacts {
-  width:960;
+  width:960px;
   height:360px;
   overflow:scroll;
   text-align: center;
@@ -8,7 +8,7 @@
 }
 
 #groups {
-  width:960;
+  width:960px;
   height:150px;
   overflow-y:scroll;
   text-align: center;
@@ -95,7 +95,7 @@ h3 {
 }
 
 .edit_card label{
-  margin-right: 0 10px 10px 0;
+  margin: 0 10px 10px 0;
 
 }
 

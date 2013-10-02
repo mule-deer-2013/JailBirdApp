@@ -135,3 +135,12 @@
     text-shadow: 2px 2px 3px black;
     margin-bottom: 5px
 }
+
+#about {
+  position: absolute;
+  top:15px;
+  left: 20px;
+  font-size: 25px;
+  font-weight: 100;
+  color: white;
+}
