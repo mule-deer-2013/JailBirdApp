@@ -55,7 +55,6 @@ function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('#contacts .contact').on('click', editContact)
-  // $('#groups a').on('click', editGroup)
   $('#import_container').on('click', 'div.import', selectContact)
   $('#import_container').on('click', '.import_button', addContacts)
   $('#groups_paginate').on('click', "#groups .group a", showGroup)

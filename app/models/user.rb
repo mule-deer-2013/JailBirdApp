@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   # validates :phone_number, phone: true
   validates :jailbird_pin, length: { is: 4 }
 
-  has_many :groups
-  has_many :contacts
+  has_many :groups, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   attr_accessible :email, :password_confirmation, :password, :uid,
                   :provider, :remember_me, :phone_number, :jailbird_pin
