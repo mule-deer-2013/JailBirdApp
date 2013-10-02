@@ -26,9 +26,10 @@ class ContactsController < ApplicationController
 
   def create
     u = current_user.contacts.build(params[:contact])
-    unless u.save
-      flash[:errors] = u.errors.full_messages
+    if u.save
+      flash[:notice] = "Successfully Created!"
     end
+    flash[:errors] = u.errors.full_messages
     redirect_to contacts_path
   end
 
