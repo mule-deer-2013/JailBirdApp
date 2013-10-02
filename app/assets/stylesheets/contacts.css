@@ -1,4 +1,4 @@
-#contacts {
+#contacts, #import_container {
   width:960px;
   height:360px;
   overflow:scroll;
@@ -172,20 +172,13 @@ h3 {
 
 /*Nicks addition below*/
 
-.contact.import {
-  float: left;
-}
 
-.contact.import .name {
-  line-height: 100%;
-}
-
-.contact.import .phone_number {
+.contact.import .name, .contact.import .phone_number  {
   line-height: 100%;
 }
 
 .selected {
-  background-color: green;
+  box-shadow: 0 0 15px 5px #0099CC;
 }
 
 #import_container button {
@@ -200,10 +193,23 @@ h3 {
   text-align: center;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   box-shadow: 0 3px 6px #333;
-  border: solid 1px #0099CC;
+  border: solid 1px #33B5E5;
   background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
+  margin-bottom: 20px
 }
 
+#import_container {
+  height: 100% !important
+}
 
+#import_container h1 {
+  text-align: center
+}
 
-
+.import_message {
+  margin: 0 auto;  
+  width: 70%;
+  text-align: center;
+  background-color: #26CC26;
+  padding: 3px;  
+}

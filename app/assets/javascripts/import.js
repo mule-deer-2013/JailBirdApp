@@ -1,5 +1,4 @@
 var selectContact = function(e) {
-	console.log('clicking on contact');
 	$(this).toggleClass('selected');
 }
 
