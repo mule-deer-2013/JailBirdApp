@@ -160,3 +160,35 @@ background-color: #26CC26;
 text-align: center;
 background-color: yellow;
 }
+/*Nicks addition below*/
+.contact.import {
+  float: left;
+}
+
+.contact.import .name {
+  line-height: 100%;
+}
+
+.contact.import .phone_number {
+  line-height: 100%;
+}
+
+.selected {
+  background-color: green;
+}
+
+#import_container button {
+  margin: 0 42.5%;
+  width: 150px;
+  height: 35px;
+  line-height: 10px;
+  color: white;
+  font-family: 'Roboto';
+  font-weight: lighter;
+  font-size:17px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  box-shadow: 0 3px 6px #333;
+  border: solid 1px #0099CC;
+  background: -webkit-gradient(linear, left top, left bottom, from(#33B5E5), to(#0099CC));
+}
