@@ -1,8 +1,16 @@
 .group{
   list-style-type: none;
-  width: 300px;
-  height: 300px;
-  margin: 50px;
-  background-color: green;
+  width: 200px;
+  height: 200px;
+  margin: 0 50px 0 50px;
+  background-image: url('/circle.png');
+  background-size: cover;
   display: inline-block;
+  vertical-align: middle;
+}
+
+.group a {
+  line-height: 200px;
+  font-size: 30px;
+  color: black;
 }
