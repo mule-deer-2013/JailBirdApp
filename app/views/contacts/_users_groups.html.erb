@@ -7,11 +7,13 @@
 	<% if current_user.groups.all.count < 4 %>
 		<%= nil %>
   <% elsif @page == @max_page %>
-     <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}") %></li>
+     <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}", :class => 'next') %></li>
   <% elsif @page < @max_page && @page > 0 %>
-    <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}") %></li>
-    <li><%= link_to('Next', "contacts?page=#{(@page + 1)}") %></li>
+    <li><%= link_to('Previous', "contacts?page=#{(@page - 1)}", :class => 'next') %></li>
+    <li><%= link_to('Next', "contacts?page=#{(@page + 1)}", :class => 'next') %></li>
   <% else %>
-    <li><%= link_to('Next', "contacts?page=#{(@page + 1)}") %></li>
+    <li><%= link_to('Next', "contacts?page=#{(@page + 1)}", :class => 'next') %></li>
   <% end %>
 </ul>
+
+

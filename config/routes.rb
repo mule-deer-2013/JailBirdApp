@@ -7,6 +7,7 @@ Jailbird::Application.routes.draw do
   match '/contacts/import', to: 'contacts#import'
 
   resources :contacts
+  match '/paginate/groups', to: 'groups#paginate'
   resources :groups, except:[:index]
   match '/groups/dragging_update', to: 'groups#dragging_update', :via => :post
 
