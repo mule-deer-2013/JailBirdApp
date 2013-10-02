@@ -20,5 +20,4 @@
 /.rspec
 */.DS_STORE
 /db/schema.rb
-/config/initializers/*
 /spec
