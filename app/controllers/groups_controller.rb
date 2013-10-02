@@ -31,10 +31,9 @@ class GroupsController < ApplicationController
     group = Group.find(params[:id])
     if group.update_attributes(params[:group])
       flash[:notice] = "Successfully Updated!"
-    else
-      flash[:errors] = contact.errors.full_messages
-      render contacts_path
     end
+      flash[:errors] = group.errors.full_messages
+      redirect_to contacts_path
   end
 
   def dragging_update
