@@ -1,6 +1,7 @@
 require 'nokogiri'
 
 class ContactsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     unless current_user.phone_number
@@ -36,7 +37,6 @@ class ContactsController < ApplicationController
   def edit
     @contact = Contact.find(params[:id])
     render layout: false
-
   end
 
   def show
