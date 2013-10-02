@@ -4,7 +4,16 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = current_user.contacts
-    @groups = current_user.groups
+    @page = params[:page].to_i
+    @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
+    div, mod = ((current_user.groups.length).divmod(3))
+    if div == 0
+      @max_page = 1
+    elsif mod == 0
+      @max_page = div
+    else
+      @max_page = div + 1
+    end
   end
 
   def new
