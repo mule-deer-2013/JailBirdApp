@@ -64,6 +64,20 @@ class ContactsController < ApplicationController
     render :import
   end
 
+  def add_imports
+    fail_array = []
+    params['contacts'].each_value do |contact_params|
+      import = current_user.contacts.build(contact_params)
+      fail_array << contact_params['name'] unless import.save
+    end
+    if fail_array.length > 0
+      @message = fail_array.join(", ") + "were not added."
+    else
+      @message = "All contacts were added successfully!"
+    end
+    render :partial => 'import_success', layout: false
+  end
+
   def about
     render :about
   end

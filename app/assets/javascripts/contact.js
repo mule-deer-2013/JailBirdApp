@@ -61,6 +61,9 @@ function setListeners(){
   $('.group').on('click', showGroup)
   $('#start input[type=submit]').on('click', getPinPage)
   $('#start').on('submit', '#new_user', getMainApp)
+  // $('#groups a').on('click', editGroup)
+  $('#import_container').on('click', 'div.import', selectContact)
+  $('#import_container').on('click', '.import_button', addContacts)
 }
 
 $(document).ready(function(){
@@ -70,6 +73,5 @@ $(document).ready(function(){
     onClose: function(myModal){
       $(myModal).html('');
     }
-
   });
 })
