@@ -5,8 +5,9 @@
 <%= form_for(@group) do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %><br/>
+<input type="text", id="filter", placeholder="Filter Names", autofocus/><br/>
   <% @contacts.each do |contact| %>
-    <div>
+    <div class='new_group_name'>
       <%= check_box_tag "group[contact_ids][]", contact.id %>
       <%= contact.name %>
     </div>

@@ -34,6 +34,7 @@ function setListeners(){
   $('#groups_paginate').on('click', "#groups .group a", showGroup)
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
+  $('#modalBox').on('keyup change', '#filter', filterNames)
   $('.group').on('click', showGroup)
   $('#start input[type=submit]').on('click', getPinPage)
   $('#start').on('submit', '#new_user', getMainApp)
