@@ -1,17 +1,13 @@
-var Welcome = {
-  init: function() {
-    $('.manually_import').on('click', jailbirdConfirmation);
-  },
 
-  jailbirdConfirmation: function(e) {
-    e.preventDefault();
-    $.ajax({
-    url: '',
-    type: 'get',
+
+function getPinPage (e) {
+  e.preventDefault();
+  $.ajax({
+    url: '/start/jailbird',
+    type: 'get'
+  })
+  .done(function(r) {
+    $('#start').html(r);
   })
 }
-
-$(document).ready(function() {
-  Welcome.init();
-})
 

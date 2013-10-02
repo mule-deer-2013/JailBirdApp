@@ -6,7 +6,7 @@ function showGroup(e){
     type: 'get'
   })
   .done(function(response) {
-    $('#modalBox').append(response);
+    $('#modalBox').html(response);
   })
   $('#modalBox').trigger('openModal')
 }
@@ -57,6 +57,7 @@ function setListeners(){
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
   $('.group').on('click', showGroup)
+  $('#start input[type=submit]').on('click', getPinPage)
 }
 
 $(document).ready(function(){
