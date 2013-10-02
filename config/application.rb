@@ -1,5 +1,5 @@
 require File.expand_path('../boot', __FILE__)
-
+config.assets.initialize_on_precompile=false
 require 'rails/all'
 
 if defined?(Bundler)

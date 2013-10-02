@@ -15,14 +15,14 @@ gem 'faker'
 gem 'pg'
 
 
-group :test, :development do
-  gem "shoulda-matchers"
-  gem "factory_girl_rails"
-  gem "capybara", "~>2.0"
-  gem "selenium-webdriver"  # Firefox (opens window)
-  #gem "capybara-webkit"     # Chrome / Safari (headless)
-  gem "guard-rspec"
-end
+# group :test, :development do
+#   gem "shoulda-matchers"
+#   gem "factory_girl_rails"
+#   gem "capybara", "~>2.0"
+#   gem "selenium-webdriver"  # Firefox (opens window)
+#   #gem "capybara-webkit"     # Chrome / Safari (headless)
+#   gem "guard-rspec"
+# end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
