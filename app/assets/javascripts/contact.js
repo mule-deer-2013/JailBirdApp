@@ -46,6 +46,3 @@ function newGroup(e){
   $('#modalBox').trigger('openModal')
 }
 
-/////////////////////////////////////////
-
-
