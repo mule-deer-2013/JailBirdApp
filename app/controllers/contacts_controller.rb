@@ -70,6 +70,10 @@ class ContactsController < ApplicationController
     render :partial => 'import_success', layout: false
   end
 
+  def about
+    render :about
+  end
+  
   private
 
   def parse_xml_contacts(contacts_response)
@@ -87,5 +91,6 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
+
 
 end

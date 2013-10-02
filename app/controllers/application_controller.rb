@@ -8,5 +8,8 @@ class ApplicationController < ActionController::Base
     contacts_path
   end
 
+  def about
+    
+  end
 
 end
