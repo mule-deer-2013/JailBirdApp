@@ -113,7 +113,7 @@ class ApiController < ActionController::Base
       CLIENT.account.calls.create(
         :from => "+14807252473",
         :to => num,
-        :url => "http://157a088b.ngrok.com/api/sending_voice_message/?recording=#{recording}"
+        :url => "http://safe-sands-5044.herokuapp.com/api/sending_voice_message/?recording=#{recording}"
         )
     end
   end
