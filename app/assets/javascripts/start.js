@@ -11,3 +11,14 @@ function getPinPage (e) {
   })
 }
 
+function getMainApp (e) {
+  e.preventDefault();
+  $.ajax({
+    url: this.action,
+    type: 'POST',
+    data: $(this).serialize()
+  })
+  .done(function(r) {
+    $(document).html(r);
+  })
+}

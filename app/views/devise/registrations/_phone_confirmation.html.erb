@@ -1,3 +1,4 @@
+
 <p>Please enter the phone number and pin you would like to use to authenticate yourself upon
 calling the Jailbird number</p>
 
@@ -5,14 +6,14 @@ calling the Jailbird number</p>
   <%= devise_error_messages! %>
 
   <div><%= f.label :phone_number %><br />
-  <%= f.text_field :phone_number, :autofocus => true %></div>
+  <%= f.text_field :phone_number, :autofocus => true, required: true %></div>
 
   <div><%= f.label :pin %><br />
-  <i>(enter a 4 digit pin)</i>
-  <%= f.text_field :jailbird_pin %></div>
+  <i>(enter a 4-digit pin)</i>
+  <%= f.text_field :jailbird_pin, required: true %></div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div><%= f.label :current_password %> <br />
+  <%= f.password_field :current_password, required: true %></div>
 
   <div><%= f.submit "Enter" %></div>
 <% end %>

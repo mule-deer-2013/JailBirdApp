@@ -52,12 +52,13 @@ function newGroup(e){
 function setListeners(){
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
-  $('.contact').on('click', editContact)
+  $('#contacts .contact').on('click', editContact)
   $('#groups_paginate').on('click', "#groups .group a", showGroup)
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
   $('.group').on('click', showGroup)
   $('#start input[type=submit]').on('click', getPinPage)
+  $('#start').on('submit', '#new_user', getMainApp)
 }
 
 $(document).ready(function(){
