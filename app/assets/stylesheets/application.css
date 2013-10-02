@@ -58,6 +58,18 @@ nav a {
   font-size: 20px;
 }
 
-input[type=text] {
-  z-index: 100
+#error_explanation h2 {
+  display: none
 }
+
+#error_explanation ul {
+  width: 280px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#error_explanation li {
+  list-style-type: none
+} 
