@@ -17,6 +17,6 @@ function getMainApp (e) {
     data: $(this).serialize()
   })
   .done(function(r) {
-    console.log(r)
+    $('body').html(r)
   })
 }
