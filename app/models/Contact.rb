@@ -5,7 +5,6 @@ class Contact < ActiveRecord::Base
   has_and_belongs_to_many :groups
 
   validates :name, :phone_number, presence: true
-  validates :phone_number, uniqueness: true
   validates :phone_number, phone: true
 
   before_save :sanitize_number
