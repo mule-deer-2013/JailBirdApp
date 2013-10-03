@@ -8,7 +8,7 @@ class GroupsController < ApplicationController
 
   def create
     g = current_user.groups.build(params[:group])
-      unless g.save
+    unless g.save
       flash[:errors] = g.errors.full_messages
     end
       redirect_to contacts_path
