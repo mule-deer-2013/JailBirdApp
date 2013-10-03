@@ -25,15 +25,16 @@ $('#modalBox').easyModal({
 }
 
 function setListeners(){
-  $('.errors').delay( 2000 ).fadeOut( 1000 );
-  $('.notice').delay( 2000 ).fadeOut( 1000 );
-  $('.alert').delay( 2000 ).fadeOut( 1000 );
+  $('.errors').delay( 1600 ).fadeOut( 1000 );
+  $('.notice').delay( 1600 ).fadeOut( 1000 );
+  $('.alert').delay( 1600 ).fadeOut( 1000 );
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('#contacts .contact').on('click', editContact)
   $('#groups_paginate').on('click', "#groups .group a", showGroup)
   $('#groups_paginate').on('click', 'img', page)
   $('#filter').on('keyup change', filterStuff)
+  $('#modalBox').on('keyup change', '#filter', filterNames)
   $('.group').on('click', showGroup)
   $('#start input[type=submit]').on('click', getPinPage)
   $('#start').on('submit', '#new_user', getMainApp)

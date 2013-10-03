@@ -6,7 +6,6 @@
 
 # Ignore bundler config
 /.bundle
-Gemfile.lock
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,8 +15,9 @@ Gemfile.lock
 /tmp
 
 # Ignore authentication files
-/config/auth
+ /config/auth
 
 /.rspec
 */.DS_STORE
 /db/schema.rb
+/spec

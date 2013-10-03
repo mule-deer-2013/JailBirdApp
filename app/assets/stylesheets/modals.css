@@ -12,3 +12,7 @@
   font-size: 20px;
   border-radius: 5px;
 }
+
+#modalBox .phone {
+  float: right;
+}

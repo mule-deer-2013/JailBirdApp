@@ -8,8 +8,6 @@
   font-weight: lighter;
 }
 
-
-
 #useredit  input[type=submit], #new_contact input[type=submit], #new_group input[type=submit] {
   width: 100px;
   height: 25px;
@@ -33,15 +31,13 @@
 
 #useredit input[type=text], #useredit input[type=password],#useredit input[type=email] {
   height: 25px;
-  width: 150px;
   font-size: 14px;
   color: #666;
-  margin: 5px 0 0 0;
   border-radius: 5px;
   padding-left: 10px;
   box-shadow: inset 1px 1px 3px 1px #666;
-  margin-bottom: 60px;
-    display: block;
+  margin: -20px 0 30px 0;
+  display: block;
 }
 
 #useredit label {
@@ -54,12 +50,9 @@
   text-align: left;
 }
 
-
 #useredit i {
   display: block;
 /*  margin-top: 20px;
   margin-bottom: -20px;*/
   font-size: 10px
 }
-
-

@@ -11,10 +11,6 @@
   <%= f.password_field :password_confirmation, :placeholder => "type it again" %>
 </div>
 
-<div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, :placeholder => "type it again" %>
-</div>
-
 <%= devise_error_messages! %>
 <div><%= f.submit "Sign up" %></div>
 <% end %>

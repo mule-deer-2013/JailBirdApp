@@ -53,9 +53,6 @@
   display: block;
 }
 
-i {
-  font-size: xsmall;
-}
 
 #start input[type=text], #start input[type=password] {
   height: 25px;

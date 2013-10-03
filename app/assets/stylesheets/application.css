@@ -50,12 +50,17 @@ nav a {
   font-size: 18px;
 }
 
-#twilio_number {
+#logo {
   float: left;
   line-height: 40px;
   font-weight: lighter;
   margin-left: 20px;
   font-size: 20px;
+}
+
+#twilio_number {
+  float: left;
+  margin-left: 20px;
 }
 
 #error_explanation h2 {
@@ -73,3 +78,8 @@ nav a {
 #error_explanation li {
   list-style-type: none
 } 
+
+#intro {
+  width: 450px !important;
+  margin: -25px;
+}
