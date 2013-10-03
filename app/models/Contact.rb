@@ -14,4 +14,15 @@ class Contact < ActiveRecord::Base
   def sanitize_number
     self.phone_number = "+" + Phonelib.parse(self.phone_number).sanitized
   end
+
+  def self.importer(contacts_hash)
+    invalid_array = []
+    contacts_hash.each_value do |contact_params|
+      contact_params['name'].strip!
+      import = current_user.contacts.build(contact_params)
+      invalid_array << contact_params['name'] unless import.save
+    end
+    invalid_array
+  end
+
 end
