@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def default_groups
-    self.groups << Group.create(name: "Favorites")
+    self.groups << Group.create(name: "Favorites", favorite: true)
     self.groups << Group.create(name: "Friends")
     self.groups << Group.create(name: "Family")
   end
