@@ -3,7 +3,6 @@ module ApplicationHelper
 	def user_auth
 		@authorization ||= (
 			auth = GOOGLE_CLIENT.authorization.dup
-			# auth.redirect_uri = GOOGLE_CLIENT.authorization.redirect_uri
 			auth.update_token!(session)
 			auth
 		)
