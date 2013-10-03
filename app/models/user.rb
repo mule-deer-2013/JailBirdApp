@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :jailbird_pin, length: { is: 4 }
+  validates_uniqueness_of :phone_number
 
   has_many :groups, dependent: :destroy
   has_many :contacts, dependent: :destroy
