@@ -83,6 +83,7 @@ class ApiController < ActionController::Base
 
   def group_sms(group, text)
     friends = {}
+    group = Group.find(group)
     group.contacts.each do |contact|
       friends[contact.name] = contact.phone_number
     end
@@ -102,22 +103,22 @@ class ApiController < ActionController::Base
   end
 
   def voice_broadcasting
-    group = Group.find(1)
+    group = params[:group]
     recording_url = params[:RecordingUrl]
     group_voice(group, recording_url)
   end
 
   def group_voice(group, recording)
     friends = {}
+    group = Group.find(group)
     group.contacts.each do |contact|
       friends[contact.name] = contact.phone_number
     end
-
-    friends.each do |name,num|
+    friends.each do |name, num|
       CLIENT.account.calls.create(
         :from => "+14807252473",
         :to => num,
-        :url => "http://safe-sands-5044.herokuapp.com/api/sending_voice_message/?recording=#{recording}"
+        :url => "http://7cd7b13e.ngrok.com/api/sending_voice_message/?recording=#{recording}"
         )
     end
   end
