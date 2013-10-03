@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password_confirmation, :password, :uid,
                   :provider, :remember_me, :phone_number, :jailbird_pin
-
   before_save :sanitize_number
   after_create :default_groups
 
@@ -22,10 +21,12 @@ class User < ActiveRecord::Base
   end
 
   def default_groups
-    self.groups << Group.create(name: "Favorites", favorite: true)
+    self.groups << Group.create(name: "Favorites")
     self.groups << Group.create(name: "Friends")
     self.groups << Group.create(name: "Family")
+    g = self.groups.where(name: 'Favorites').first
+    g.favorite = true
+    g.save
   end
 
 end
-x

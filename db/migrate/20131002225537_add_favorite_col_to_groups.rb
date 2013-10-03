@@ -7,4 +7,3 @@ class AddFavoriteColToGroups < ActiveRecord::Migration
   	remove_column :groups, :favorite
   end
 end
-x
