@@ -18,7 +18,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @contacts = current_user.contacts
     render layout: false
-
   end
 
   def show
