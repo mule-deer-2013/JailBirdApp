@@ -21,3 +21,5 @@
 */.DS_STORE
 /db/schema.rb
 /spec
+
+coverage
