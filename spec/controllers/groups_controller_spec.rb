@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe GroupsController do
   context "#new" do
-
     it "passes through the new group thing"
 
     it "passes through the current user contacts"
@@ -29,7 +28,6 @@ describe GroupsController do
   end
 
   context "#update" do
-
   end
 
 end
