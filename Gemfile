@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem "rspec-rails", :group => [:test, :development]
 gem 'google-api-client'
