@@ -66,12 +66,7 @@ class ContactsController < ApplicationController
   end
 
   def add_imports
-    fail_array = []
-    params['contacts'].each_value do |contact_params|
-      contact_params['name'].strip!
-      import = current_user.contacts.build(contact_params)
-      fail_array << contact_params['name'] unless import.save
-    end
+    fail_array = Contact.importer(params['contacts'])
     if fail_array.length > 0
       @message = fail_array.join(", ") + "were not added."
     else

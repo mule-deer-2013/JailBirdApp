@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :jailbird_pin, length: { is: 4 }
+  validates :phone_number, phone: true, if: "!phone_number.nil?"
+  validates :phone_number, uniqueness: true, if: "!phone_number.nil?"
 
   has_many :groups, dependent: :destroy
   has_many :contacts, dependent: :destroy
@@ -11,7 +13,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password_confirmation, :password, :uid,
                   :provider, :remember_me, :phone_number, :jailbird_pin
 
-  before_save :sanitize_number
+  before_validation :sanitize_number
   after_create :default_groups
 
   def sanitize_number
@@ -22,9 +24,10 @@ class User < ActiveRecord::Base
   end
 
   def default_groups
-    self.groups << Group.create(name: "Favorites", favorite: true)
+    self.groups << Group.create(name: "Favorites")
     self.groups << Group.create(name: "Friends")
     self.groups << Group.create(name: "Family")
+    self.groups.find_by_name("Favorites").favorite = true
   end
 
 end
