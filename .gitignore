@@ -15,10 +15,11 @@
 /tmp
 
 # Ignore authentication files
- /config/auth
+/config/auth
 
 /.rspec
-*/.DS_STORE
+*/.DS_Store
+.DS_Store
 /db/schema.rb
 /spec
 

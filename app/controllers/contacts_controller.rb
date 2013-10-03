@@ -58,8 +58,8 @@ class ContactsController < ApplicationController
   end
 
   def import
-    user_info = JSON.parse(RestClient.get user_info_url(google_auth_token))
-    contacts_response = RestClient.get google_contacts_url(user_info['email'], google_auth_token)
+    import_email = user_gmail(google_auth_token)
+    contacts_response = google_contacts(import_email, google_auth_token)
     @imported_contacts = parse_xml_contacts(contacts_response)
     flash[:error] = "No contacts with mobile numbers found." if @imported_contacts.empty?
     render :import
