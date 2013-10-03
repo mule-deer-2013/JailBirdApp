@@ -5,9 +5,9 @@
 
   <%= form_for(@contact) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, autofocus: true %><br/>
   <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
+  <%= f.text_field :phone_number %><br/>
   <%= f.submit value: "Create" %>
   <% end %>
 

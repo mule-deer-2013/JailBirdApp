@@ -25,9 +25,9 @@ $('#modalBox').easyModal({
 }
 
 function setListeners(){
-  $('.errors').delay( 2000 ).fadeOut( 1000 );
-  $('.notice').delay( 2000 ).fadeOut( 1000 );
-  $('.alert').delay( 2000 ).fadeOut( 1000 );
+  $('.errors').delay( 1600 ).fadeOut( 1000 );
+  $('.notice').delay( 1600 ).fadeOut( 1000 );
+  $('.alert').delay( 1600 ).fadeOut( 1000 );
   $('#new_group').on('click', newGroup)
   $('#new_contact').on('click', newContact)
   $('#contacts .contact').on('click', editContact)
