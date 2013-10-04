@@ -11,7 +11,7 @@
     <% @groups.each do |g|  %>
       <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
     <% end %>
-    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_right'), "contacts?page=#{(@page + 1)}" %>
+    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_right'), "#" %>
 
 
   <% elsif @page < @max_page && @page > 0 %>
@@ -26,7 +26,7 @@
 
   <% else %>
 
-    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_left'), "contacts?page=#{(@page - 1)}" %>
+    <%= link_to image_tag('/blank_arrow.png', class: 'arrow_left'), "#" %>
 
     <% @groups.each do |g|  %>
       <li class="group" id="<%= g.id %>"><%= link_to g.name, edit_group_path(g) %></li>
@@ -40,5 +40,5 @@
     $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
     $('.contact .name').fitText(1.2, { minFontSize: '13px', maxFontSize: '40px' })
   </script>
-  
+
 </div>
