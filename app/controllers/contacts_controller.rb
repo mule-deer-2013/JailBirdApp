@@ -66,7 +66,7 @@ class ContactsController < ApplicationController
   end
 
   def add_imports
-    fail_array = Contact.importer(params['contacts'])
+    fail_array = Contact.importer(params['contacts'], current_user)
     if fail_array.length > 0
       @message = fail_array.join(", ") + "were not added."
     else
