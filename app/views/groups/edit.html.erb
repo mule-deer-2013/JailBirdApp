@@ -1,0 +1,22 @@
+<div class="edit_card">
+<h4>edit your group</h4>
+<%= render 'layouts/errors' %>
+
+
+
+<%= form_for(@group) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br/>
+  <% @contacts.each do |contact| %>
+
+    <div>
+      <%= check_box_tag "group[contact_ids][]", contact.id, @group.contacts.include?(contact) %>
+          <%= render "edit_card", contact: contact %>
+
+    </div>
+  <% end %>
+  <%= f.submit value="Edit Group"%>
+<% end %>
+
+<%= button_to "Delete", @group, :method => :delete, :confirm => "Are you sure?" %>
+</div>

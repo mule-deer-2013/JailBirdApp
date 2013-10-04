@@ -1,0 +1,14 @@
+<%= render 'layouts/errors' %>
+<div id="new_contact">
+
+  <h3>enter your contact's info</h3>
+
+  <%= form_for(@contact) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true %><br/>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %><br/>
+  <%= f.submit value: "Create" %>
+  <% end %>
+
+</div>

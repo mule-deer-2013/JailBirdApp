@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jailbird</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,700|Roboto:400,500,900,100' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav>
+    <% if user_signed_in? %>
+      <%= link_to "Jailbird", root_path, id:'logo' %>
+      <%= link_to "480.725.2473", root_path, id:'twilio_number' %>      
+      <%= link_to 'Edit Profile', edit_user_registration_path %>
+      <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+    <% end %>
+  </nav>
+  <% unless flash[:notice].nil? %>
+	  <p class="notice"><%= notice %></p>
+  <% end %> 
+  <% unless flash[:alert].nil? %> 
+	  <p class="alert"><%= alert %></p>
+  <% end %>
+	<%= yield %>
+	</body>
+
+</html>

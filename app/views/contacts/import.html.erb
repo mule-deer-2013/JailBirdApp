@@ -1,0 +1,14 @@
+<div class="import_message">
+  <%= render 'layouts/errors' %>
+</div>
+
+<div id='import_container'>
+<h1>Click on cards to select contacts:</h1>
+  <button class='import_button' type='button'>+ import contacts</button>
+  <%= link_to "Cancel", root_path, class: 'cancel_link' %>
+<input type="text", id="filter", placeholder="Filter Names" autofocus/>
+  <br><br>
+	<% @imported_contacts.each_with_index do |contact, index| %>
+		<%= render 'import_card', contact: contact, i: index %>
+	<% end %>
+</div>

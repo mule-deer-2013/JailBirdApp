@@ -1,0 +1,18 @@
+
+<p>Please enter the phone number and pin you would like to use to authenticate yourself upon
+calling the Jailbird number</p>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <%= f.label :phone_number %><br />
+  <%= f.text_field :phone_number, required: true %>
+
+  <%= f.label :pin, "4-digit PIN" %><br />
+  <%= f.text_field :jailbird_pin, required: true %>
+
+  <%= f.label :current_password %> <br />
+  <%= f.password_field :current_password, required: true %>
+
+  <div><%= f.submit "Enter" %></div>
+<% end %>

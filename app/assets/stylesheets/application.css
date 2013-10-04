@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+*:focus {
+    outline: none;
+    box-shadow: 0px 0px 2pt 2pt #33B5E5
+}
+
+body {
+  background-image: url('bg.jpg'); 
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto';
+  margin-top: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 40px;
+  text-align: right;
+  background: #111;
+  box-shadow: 0 5px 10px #999;
+  color: white
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: lighter;
+  line-height: 40px;
+  margin: 0 10px 0 10px;
+  font-size: 18px;
+}
+
+#logo {
+  float: left;
+  line-height: 40px;
+  font-weight: lighter;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+#twilio_number {
+  float: left;
+  margin-left: 20px;
+}
+
+#error_explanation h2 {
+  display: none
+}
+
+#error_explanation ul {
+  width: 280px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+#error_explanation li {
+  list-style-type: none
+} 
+
+#intro {
+  width: 450px !important;
+  margin: -25px;
+}

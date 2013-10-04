@@ -1,0 +1,8 @@
+<h2><%= @group.name %></h2>
+<% @group.contacts.each do |contact| %>
+  <span class="name"> <%= contact.name %> </span>
+  <span class="phone"> <%= contact.phone_number %></span> <br/>
+
+<% end %>
+
+<%= link_to "edit group", edit_group_path %>
