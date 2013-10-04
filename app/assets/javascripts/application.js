@@ -43,12 +43,13 @@ function setListeners(){
   $('#start').on('submit', '#new_user', getMainApp)
   $('#import_container').on('click', 'div.import', selectContact)
   $('#import_container').on('click', '.import_button', addContacts)
-  // $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
-  // $('.contact .name').fitText(1.2, { minFontSize: '13px', maxFontSize: '40px' })
   $('#error_explanation ul').hide().delay(600).slideDown(300)
   $('#modalBox').on('click', 'a', editGroup)
-  modalStarter(); 
-  draggingContacts($('.group'))
+  modalStarter()
+  draggingContacts()
+  droppingContacts($('.group'))
+  // $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
+  // $('.contact .name').fitText(1.2, { minFontSize: '13px', maxFontSize: '40px' })
 }
 
 $(document).ready(function(){
