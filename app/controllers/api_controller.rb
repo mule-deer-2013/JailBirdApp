@@ -41,15 +41,15 @@ class ApiController < ActionController::Base
           end
         end
       elsif params['Digits'] == "2"
-        r.Gather :numDigits => '2', :action => '/api/sms_blast', :method => 'get' do |g|
-          groups.each do |group|
-            g.Say "To SMS blast #{group.name}, press #{group.id}"
+        r.Gather :numDigits => "2", :action => "/api/sms_blast/?user=#{user.id}", :method => 'get' do |g|
+          groups.each do |group, index|
+            g.Say "To SMS blast #{group.name}, press #{index+1}"
           end
         end
       elsif params['Digits'] == "3"
-        r.Gather :numDigits => '3', :action => '/api/voice_blast', :method => 'get' do |g|
-          groups.each do |group|
-            g.Say "To Voice blast #{group.name}, press #{group.id}"
+        r.Gather :numDigits => '3', :action => "/api/voice_blast/?user=#{user.id}", :method => 'get' do |g|
+          groups.each do |group, index|
+            g.Say "To Voice blast #{group.name}, press #{index+1}"
           end
         end
       end
@@ -77,7 +77,8 @@ class ApiController < ActionController::Base
   end
 
   def sms_blast
-    @group_id = params["Digits"]
+    user = User.find(params[:user])
+    @group_id = user.groups[(params['Digits'].to_i - 1)].id
     render "vm_to_text.xml.builder"
   end
 
@@ -98,7 +99,8 @@ class ApiController < ActionController::Base
   end
 
   def voice_blast
-    @group_id = params["Digits"]
+    user = User.find(params[:user])
+    @group_id = user.groups[(params['Digits'].to_i - 1)].id
     render "voice_blast.xml.builder"
   end
 

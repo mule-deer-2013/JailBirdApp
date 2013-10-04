@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :phone_number, phone: true, if: "!phone_number.nil?"
   validates :phone_number, uniqueness: true, if: "!phone_number.nil?"
 
+
   has_many :groups, dependent: :destroy
   has_many :contacts, dependent: :destroy
 
