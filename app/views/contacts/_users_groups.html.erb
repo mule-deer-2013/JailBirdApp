@@ -35,4 +35,10 @@
     <%= link_to image_tag('/arrow_right.png', class: 'arrow_right'), "contacts?page=#{(@page + 1)}" %>
 
   <% end %>
+
+  <script type="text/javascript">
+    $('.group a').fitText(1.2, { minFontSize: '20px', maxFontSize: '40px' })
+    $('.contact .name').fitText(1.2, { minFontSize: '13px', maxFontSize: '40px' })
+  </script>
+  
 </div>
