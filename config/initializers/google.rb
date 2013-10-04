@@ -8,7 +8,7 @@ unless Rails.env.production?
   client_secrets = Google::APIClient::ClientSecrets.load('config/auth')
   client_id = client_secrets.client_id
   client_secret = client_secrets.client_secret
-  redirect_uri = client_secrets.redirect_uris.first
+  redirect_uri = 'http://localhost:3000/google/create'
 else
   client_id = ENV['GOOGLE_APP_ID']
   client_secret = ENV['GOOGLE_APP_SECRET']
