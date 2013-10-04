@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131002225537) do
+ActiveRecord::Schema.define(:version => 20131003180850) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -48,5 +48,7 @@ ActiveRecord::Schema.define(:version => 20131002225537) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["jailbird_pin"], :name => "index_users_on_jailbird_pin"
+  add_index "users", ["phone_number"], :name => "index_users_on_phone_number"
 
 end
