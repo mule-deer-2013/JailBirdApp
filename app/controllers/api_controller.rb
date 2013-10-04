@@ -42,13 +42,13 @@ class ApiController < ActionController::Base
         end
       elsif params['Digits'] == "2"
         r.Gather :numDigits => "2", :action => "/api/sms_blast/?user=#{user.id}", :method => 'get' do |g|
-          groups.each do |group, index|
+          groups.each.each_with_index do |group, index|
             g.Say "To SMS blast #{group.name}, press #{index+1}"
           end
         end
       elsif params['Digits'] == "3"
         r.Gather :numDigits => '3', :action => "/api/voice_blast/?user=#{user.id}", :method => 'get' do |g|
-          groups.each do |group, index|
+          groups.each_with_index do |group, index|
             g.Say "To Voice blast #{group.name}, press #{index+1}"
           end
         end
