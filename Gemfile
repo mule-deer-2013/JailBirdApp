@@ -14,7 +14,6 @@ gem 'devise'
 gem 'faker'
 gem 'pg'
 
-
 # group :test, :development do
 #   gem "shoulda-matchers"
 #   gem "factory_girl_rails"
@@ -24,7 +23,6 @@ gem 'pg'
 #   gem "guard-rspec"
 #   gem 'simplecov', :require => false
 # end
-
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

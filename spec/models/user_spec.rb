@@ -13,6 +13,16 @@ describe User do
 		it { should allow_mass_assignment_of :password }
 		it { should allow_mass_assignment_of :uid }
 		it { should allow_mass_assignment_of :provider }
+		it { should allow_mass_assignment_of :remember_me }
+		it { should allow_mass_assignment_of :phone_number }
+		it { should allow_mass_assignment_of :jailbird_pin }
+	end
+
+	context 'validations' do
+		it { should validate_uniqueness_of :phone_number }
+		it { should ensure_length_of(:jailbird_pin).is_equal_to(4) }
+		it { should_not allow_value("5555555").for(:phone_number) }
+		it { should allow_value("19098638577").for(:phone_number) }
 	end
 	
 end
