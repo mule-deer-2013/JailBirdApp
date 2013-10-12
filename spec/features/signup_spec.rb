@@ -1,16 +1,22 @@
 require 'spec_helper'
 
-feature "Sign up" do
+feature "Visitor signs up" do
 
-	scenario "User submits form without email address" do
+	scenario "without email address" do
 		visit root_path
-		fill_in 'user_password', with: 'password'
-		fill_in 'user_password_confirmation', with: 'password'
+		page.find(:css, 'div.signup').fill_in 'user_password', with: 'password'
+		page.find(:css, 'div.signup').fill_in 'user_password_confirmation', with: 'password'
 		click_button 'Sign up'
-		expect(page).to have_content("Email cannot be blank")
+		expect(page).to have_content("Email can't be blank")
 	end
 
-	scenario "User completes form with valid info" do
+	scenario "with valid info" do
+		visit root_path
+		page.find(:css, 'div.signup').fill_in 'user_email', with: 'bob@bob.com'
+		page.find(:css, 'div.signup').fill_in 'user_password', with: 'password'
+		page.find(:css, 'div.signup').fill_in 'user_password_confirmation', with: 'password'
+		click_button 'Sign up'
+		expect(page).to have_content("First, add contacts to your Jailbird address book.")
 	end
 
 end
