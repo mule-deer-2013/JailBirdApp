@@ -7,7 +7,7 @@ class Group < ActiveRecord::Base
 
   belongs_to :user
   has_many :contacts_groups
-  has_many :contacts, through: :contacts_groups
+  has_many :contacts, through: :contacts_group
 
   def favorite_is_true?
     favorite == true

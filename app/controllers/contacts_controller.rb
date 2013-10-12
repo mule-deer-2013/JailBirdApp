@@ -86,7 +86,7 @@ class ContactsController < ApplicationController
     xml_contacts = Nokogiri::XML(contacts_response)
     xml_contacts.css('entry').each do |node|
       phone_number_tags = node.xpath('gd:phoneNumber')
-      phone_number_types = phone_number_tags.map { |phone_tag| phone_tag.attr('rel').match(/[^#]\w+$/).to_s.to_sym unless phone_tag.attr('rel').nil? }
+      phone_number_types = extract_types_from_rel(phone_number_tags)
       if phone_number_tags[0] != nil && phone_number_types.include?(:mobile)
         contact = { name: node.at_css('title').text }
         phone_numbers = phone_number_tags.map { |phone_tag| phone_tag.inner_text }
@@ -96,4 +96,9 @@ class ContactsController < ApplicationController
     end
     parsed_contacts
   end
+
+  def extract_types_from_rel(tags)
+    tags.map { |phone_tag| phone_tag.attr('rel').match(/[^#]\w+$/).to_s.to_sym unless phone_tag.attr('rel').nil? }
+  end
+
 end
