@@ -22,7 +22,7 @@
 */.DS_Store
 .DS_Store
 /db/schema.rb
-/spec
 ngrok
+Gemfile.lock
 
 coverage

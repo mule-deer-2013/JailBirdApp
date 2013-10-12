@@ -11,3 +11,4 @@ feature "Visitor creates contact" do
   end
 
 end
+
