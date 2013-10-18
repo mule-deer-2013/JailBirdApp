@@ -18,7 +18,7 @@
 
 /config/auth/
 
-/.rspec
+.rspec
 */.DS_Store
 .DS_Store
 /db/schema.rb
