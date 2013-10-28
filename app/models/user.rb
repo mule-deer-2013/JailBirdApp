@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  attr_encryptor :jailbird_pin, :key => 'a secret key that will be defined elsewhere later'
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :jailbird_pin, length: { is: 4 }
@@ -14,7 +15,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password_confirmation, :password, :uid,
                   :provider, :remember_me, :phone_number, :jailbird_pin
 
-  before_validation :sanitize_number
+  before_validation :sanitize_number, :get_pin_number
+  before_save :encrypt_jailbird_pin
   after_create :default_groups
 
   def sanitize_number
@@ -24,6 +26,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  private
+
   def default_groups
     self.groups << Group.create(name: "Favorites")
     self.groups << Group.create(name: "Friends")
@@ -32,7 +36,14 @@ class User < ActiveRecord::Base
     g = self.groups.where(name: 'Favorites').first
     g.favorite = true
     g.save
+  end
 
+  def encrypt_jailbird_pin
+    self[:encrypted_jailbird_pin] = self.encrypted_jailbird_pin if self.jailbird_pin
+  end
+
+  def get_pin_number
+    self.encrypted_jailbird_pin = self[:encrypted_jailbird_pin]
   end
 
 end
