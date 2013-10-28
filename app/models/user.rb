@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :jailbird_pin, length: { is: 4 }
+  validates :jailbird_pin, format: { with: /\A\d{4}\z/, message: "only allows 4-digit numbers" }
   validates :phone_number, phone: true, if: "!phone_number.nil?"
   validates :phone_number, uniqueness: true, if: "!phone_number.nil?"
 
