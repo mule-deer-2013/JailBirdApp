@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
                   :provider, :remember_me, :phone_number, :jailbird_pin
 
   before_validation :sanitize_number, :get_pin_number
-  before_save :encrypt_jailbird_pin
   after_create :default_groups
 
   def sanitize_number
@@ -38,15 +37,11 @@ class User < ActiveRecord::Base
     g.save
   end
 
-  def encrypt_jailbird_pin
-    self[:encrypted_jailbird_pin] = self.encrypted_jailbird_pin if self.jailbird_pin
-  end
-
   def get_pin_number
     if self[:encrypted_jailbird_pin]
-      self.encrypted_jailbird_pin = self[:encrypted_jailbird_pin]
+      self.jailbird_pin ? self[:encrypted_jailbird_pin] = self.encrypted_jailbird_pin : self.encrypted_jailbird_pin = self[:encrypted_jailbird_pin]
     else
-      self.jailbird_pin = self[:jailbird_pin]
+      self.jailbird_pin ? self[:jailbird_pin] = self.jailbird_pin : self.jailbird_pin = self[:jailbird_pin]
     end
   end
 
