@@ -1,4 +1,6 @@
 Jailbird::Application.configure do
+  APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
+  APP_NAME = APP_ROOT.basename.to_s
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

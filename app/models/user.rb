@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  attr_encryptor :jailbird_pin, :key => 'a secret key that will be defined elsewhere later'
+  attr_encryptor :jailbird_pin, :key => ENV['PIN_KEY']
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :jailbird_pin, length: { is: 4 }
   validates :phone_number, phone: true, if: "!phone_number.nil?"
   validates :phone_number, uniqueness: true, if: "!phone_number.nil?"
-
 
   has_many :groups, dependent: :destroy
   has_many :contacts, dependent: :destroy
@@ -43,7 +42,11 @@ class User < ActiveRecord::Base
   end
 
   def get_pin_number
-    self.encrypted_jailbird_pin = self[:encrypted_jailbird_pin]
+    if self[:encrypted_jailbird_pin]
+      self.encrypted_jailbird_pin = self[:encrypted_jailbird_pin]
+    else
+      self.jailbird_pin = self[:jailbird_pin]
+    end
   end
 
 end
