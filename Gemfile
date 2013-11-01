@@ -13,6 +13,7 @@ gem 'debugger'
 gem 'devise'
 gem 'faker'
 gem 'pg'
+gem 'attr_encrypted'
 
 group :test, :development do
   gem "shoulda-matchers"
