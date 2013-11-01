@@ -15,12 +15,14 @@
 /tmp
 
 # Ignore authentication files
-/config/auth
 
-/.rspec
+/config/auth/
+
+.rspec
 */.DS_Store
 .DS_Store
 /db/schema.rb
-/spec
+ngrok
+Gemfile.lock
 
 coverage

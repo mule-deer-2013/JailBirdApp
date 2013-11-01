@@ -17,7 +17,7 @@ class ApiController < ActionController::Base
   end
 
   def jailbird_pin
-    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"])
+    user = retrieve_jailbird_user(params[:phone], params["Digits"])
     if user.count == 1
       @user_id = user.first.id
       render 'ivr.xml.builder'
