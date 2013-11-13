@@ -26,7 +26,8 @@
   margin: 0 100px 0 100px
 }
 
-.new_button input[type=submit], .panel .signin input[type=submit] {
+.new_button input[type=submit],
+.panel .signin input[type=submit] {
   margin-top: 15px;
   width: 150px;
   height: 35px;
@@ -103,7 +104,9 @@ h3 {
   margin-top: 20px
 }
 
-.edit_card  input[type=submit], #new_contact input[type=submit], #new_group input[type=submit] {
+.edit_card  input[type=submit],
+#new_contact input[type=submit],
+#new_group input[type=submit] {
   margin-top: 35px;
   width: 100px;
   height: 25px;
@@ -111,7 +114,7 @@ h3 {
   color: white;
   font-family: 'Roboto';
   font-weight: lighter;
-  font-size:15px;
+  font-size: 15px;
   text-align: center;
   text-shadow: 0 1px 1px rgba(0,0,0,.3);
   box-shadow: 0 3px 6px #333;

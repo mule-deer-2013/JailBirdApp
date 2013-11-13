@@ -13,12 +13,12 @@
  */
 
 *:focus {
-    outline: none;
-    box-shadow: 0px 0px 2pt 2pt #33B5E5
+  outline: none;
+  box-shadow: 0px 0px 2pt 2pt #33B5E5;
 }
 
 body {
-  background-image: url('bg.jpg'); 
+  background-image: url('bg.jpg');
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Roboto';
@@ -38,7 +38,7 @@ nav {
   text-align: right;
   background: #111;
   box-shadow: 0 5px 10px #999;
-  color: white
+  color: white;
 }
 
 nav a {
@@ -64,7 +64,7 @@ nav a {
 }
 
 #error_explanation h2 {
-  display: none
+  display: none;
 }
 
 #error_explanation ul {
@@ -76,8 +76,8 @@ nav a {
 }
 
 #error_explanation li {
-  list-style-type: none
-} 
+  list-style-type: none;
+}
 
 #intro {
   width: 450px !important;
