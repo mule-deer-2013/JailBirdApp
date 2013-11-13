@@ -6,8 +6,8 @@ function filterStuff () {
   var query = $(this).val().toLowerCase()
 
   if (filter) {
-    $(this).parent().find(".contact:not(:Contains(" + query + "))").fadeOut(100);
-    $(this).parent().find(".contact:Contains(" + query + ")").fadeIn(100)
+    $(this).parent().find(".contact:not(:Contains(" + query + "))").fadeOut(400);
+    $(this).parent().find(".contact:Contains(" + query + ")").fadeIn(400)
   } 
   else {
     $(this).parent().find(".contact").fadeIn();
@@ -18,8 +18,8 @@ function filterNames () {
   var query = $(this).val().toLowerCase()
 
   if (filter) {
-    $(this).parent().find(".new_group_name:not(:Contains(" + query + "))").fadeOut(100);
-    $(this).parent().find(".new_group_name:Contains(" + query + ")").fadeIn(100)
+    $(this).parent().find(".new_group_name:not(:Contains(" + query + "))").fadeOut(400);
+    $(this).parent().find(".new_group_name:Contains(" + query + ")").fadeIn(400)
   } 
   else {
     $(this).parent().find(".new_group_name").fadeIn();
